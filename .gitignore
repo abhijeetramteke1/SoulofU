@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+db.sqlite3
+
+# Node (test-only deps)
+node_modules/
+package.json
+package-lock.json
+
+# User uploads
+media/
+
+# Editor
+*.swp

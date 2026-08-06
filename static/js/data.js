@@ -1,0 +1,191 @@
+/* ── The Ice Flower Library · collection data ─────────────────────────── */
+window.POEMS = [
+  {
+    id: "ice-flower-scroll",
+    title: "The Ice Flower Unfolds",
+    korean: "빙화가 피다",
+    category: "shifting-souls",
+    date: "Winter of the 22nd Year · Daeho",
+    tags: ["ice stone", "jinyowon", "the frozen one"],
+    excerpt: "Every winter it pretends to sleep — every winter it remembers.",
+    art: "assets/art/ice-flower-scroll.svg",
+    stanzas: [
+      ["In the lake of frozen vows,", "Jinyowon keeps what the sun forgets —", "a petal folded into stone,", "a name folded into a name."],
+      ["Every winter it pretends to sleep,", "every winter it remembers:", "the hand that planted it in iron,", "the heart that watered it with fire."],
+      ["Blossom, cold and patient thing.", "One day a hand will come that knows.", "One day the stone will not refuse.", "One day the ice will learn to burn."]
+    ]
+  },
+  {
+    id: "water-fire-n1",
+    title: "Water Weds Fire",
+    korean: "물과 불의 혼례",
+    category: "water-fire",
+    date: "Autumn of the 21st Year · Daeho",
+    tags: ["water", "fire", "the impossible"],
+    excerpt: "What is love but a lit lantern hung above a river at night?",
+    art: "assets/art/water-fire-n1.svg",
+    stanzas: [
+      ["She came to me as rain to a stone,", "softly, and with no apology.", "He came to me as a flint's first spark,", "claiming what the dark had loaned."],
+      ["They said fire cannot live in water,", "and water cannot keep a fire.", "But what is love but a lit lantern", "hung above a river at night?"],
+      ["So let the rain fall through the flame,", "let the flame stand in the rain.", "I have seen the impossible kneel", "before two fools who would not drown."]
+    ]
+  },
+  {
+    id: "shifting-soul-knot",
+    title: "Knot of Two Souls",
+    korean: "두 영혼의 매듭",
+    category: "shifting-souls",
+    date: "Midsummer of the 21st Year · Daeho",
+    tags: ["the knot", "borrowed eyes", "shifter"],
+    excerpt: "Now every mirror shows a stranger wearing borrowed eyes.",
+    art: "assets/art/shifting-soul-knot.svg",
+    stanzas: [
+      ["Two threads of one red cord,", "loose in the wind of a burnt kingdom.", "A shaman pulled them close once,", "mistaking mercy for a knot."],
+      ["Now every mirror shows a stranger", "wearing borrowed eyes.", "Every waking is a theft", "from a body that was never theirs."],
+      ["Yet in the knot there is a warmth —", "two winters sharing one hearth.", "Not one soul, not two,", "but a fire that requires both."]
+    ]
+  },
+  {
+    id: "shadow-gate",
+    title: "Shadow at the Gate",
+    korean: "문 앞의 그림자",
+    category: "shadow-light",
+    date: "Spring of the 22nd Year · Daeho",
+    tags: ["the gate", "patience", "light"],
+    excerpt: "Light enters like a rumor, thin and quickly spent.",
+    art: "assets/art/shadow-gate.svg",
+    stanzas: [
+      ["The gate keeps its own counsel —", "stone upon stone upon silence.", "Kings pass through it twice:", "once crowned, once carried."],
+      ["Light enters like a rumor,", "thin and quickly spent.", "Shadow enters like a tenant,", "and pays its rent in patience."],
+      ["Do not ask the gate which is truer.", "Ask rather who stands outside,", "and what they would trade", "to be let in at all."]
+    ]
+  },
+  {
+    id: "daeho-west-chronicle",
+    title: "Chronicle of the Western Daeho",
+    korean: "서쪽 대호 연대기",
+    category: "daeho-chronicles",
+    date: "Written in Cinnabar · Year 19",
+    tags: ["cinnabar", "scribes", "the west"],
+    excerpt: "Truth lives in Daeho between the pages, in the space the ink refused.",
+    art: "assets/art/daeho-west-chronicle.svg",
+    stanzas: [
+      ["They wrote the west in cinnabar,", "each war a sentence, each treaty a comma.", "The chronicle is long and warm", "where blood has kept it moist."],
+      ["Kings are named and unmade in ink;", "swords are measured by their heirs.", "The scribe writes on, unafraid,", "for he is only a man with a brush."],
+      ["Read it at dusk and it will lie to you.", "Read it at dawn and it will lie to you still.", "Truth lives in Daeho between the pages,", "in the space the ink refused."]
+    ]
+  },
+  {
+    id: "water-and-fire",
+    title: "Salt of Two Rivers",
+    korean: "두 강의 소금",
+    category: "water-fire",
+    date: "First Frost · Year 20",
+    tags: ["the meeting", "currents", "beloved"],
+    excerpt: "So it is with us, beloved — two rivers in one bed.",
+    art: "assets/art/water-and-fire.svg",
+    stanzas: [
+      ["The northern river runs cold and green,", "the southern river runs gold.", "Where they meet, the water argues", "for a hundred years at a time."],
+      ["Fishermen learn the quarrel's map;", "they cast where the currents hesitate.", "The best fish are caught in the seam", "between one will and another."],
+      ["So it is with us, beloved —", "two rivers in one bed.", "Not to merge, but to keep", "the bright line of our difference."]
+    ]
+  },
+  {
+    id: "jin-awakening",
+    title: "Awakening at Jinyowon",
+    korean: "진요원의 각성",
+    category: "daeho-chronicles",
+    date: "Night of the Great Seal · Year 21",
+    tags: ["jinyowon", "the stones", "shard of ice"],
+    excerpt: "Awakening is not a bell — it is the slow unsealing of a jar.",
+    art: "assets/art/jin-awakening.svg",
+    stanzas: [
+      ["In Jinyowon the stones are still,", "but they breathe, if you are quiet.", "Each pillar holds a question", "that no mage has answered twice."],
+      ["I came with a shard of ice", "warm from my own hand.", "The stones leaned toward it,", "hungry as winter toward spring."],
+      ["Awakening is not a bell.", "It is the slow unsealing of a jar", "in which someone long ago", "sealed a smaller self."]
+    ]
+  },
+  {
+    id: "ice-bloom-morn",
+    title: "Bloom in the Frozen Morning",
+    korean: "얼어붙은 아침의 꽃",
+    category: "shadow-light",
+    date: "Deep Winter · Year 22",
+    tags: ["frost", "the defiant bloom", "calendar of life"],
+    excerpt: "Some blooms are not for spring. Some dawns come in the coldest hour.",
+    art: "assets/art/ice-bloom-morn.svg",
+    stanzas: [
+      ["The world was white and did not care.", "Frost had sewn the fields shut,", "and the sun, that lazy seamstress,", "kept her needles in the cloud."],
+      ["Then — a blue against the white,", "impatient as a held breath.", "The ice flower does not ask", "permission of the season."],
+      ["Some blooms are not for spring.", "Some dawns come in the coldest hour,", "bearing not warmth but proof", "that life has its own calendar."]
+    ]
+  },
+  {
+    id: "ember-soul",
+    title: "The Ember Inside",
+    korean: "속의 불씨",
+    category: "shifting-souls",
+    date: "After the Burning · Year 21",
+    tags: ["the hearth", "refusal", "survival"],
+    excerpt: "Souls are like that — terrible in their refusal to go out.",
+    art: "assets/art/ember-soul.svg",
+    stanzas: [
+      ["They burned the house and left the hearth,", "expecting the cold to finish it.", "But under the ash, a small red heart", "kept its one syllable."],
+      ["Souls are like that — terrible", "in their refusal to go out.", "You can scatter them, trade them, cage them;", "they learn the bars by heart."],
+      ["I carry mine openly now.", "What is left to hide?", "The ember that survives the fire", "answers only to the wind."]
+    ]
+  },
+  {
+    id: "mist-gate",
+    title: "The Mist Gate",
+    korean: "안개의 문",
+    category: "daeho-chronicles",
+    date: "Journey Record · Year 19",
+    tags: ["the mountain", "mercy", "the road"],
+    excerpt: "Those who enter twice return once. Those who enter once return twice.",
+    art: "assets/art/mist-gate.svg",
+    stanzas: [
+      ["No wall stands at the gate of mist;", "the mountain simply declines to be.", "Travelers argue the map,", "then argue the mountain's name."],
+      ["Through it, the road continues —", "narrower, colder, sure of itself.", "Those who enter twice return once.", "Those who enter once return twice."],
+      ["I have stopped asking where it leads.", "The mist is not a test; it is a mercy,", "hiding from us, until we are ready,", "the shape of our own next step."]
+    ]
+  },
+  {
+    id: "winter-scarsal",
+    title: "Winter in the Scarsal",
+    korean: "겨울의 사르살",
+    category: "water-fire",
+    date: "The Long Snow · Year 22",
+    tags: ["hearth", "the bargain", "snow"],
+    excerpt: "A small warm room at the edge of Daeho, watching the storm spend itself.",
+    art: "assets/art/winter-scarsal.svg",
+    stanzas: [
+      ["Winter leases the scarsal", "at a rent of white.", "The eaves grow beards of crystal;", "the well learns to hold its tongue."],
+      ["We sit close and burn the years —", "each log a season's argument.", "Outside, the snow performs its duties", "with the silence of the devout."],
+      ["This is the peace we bargained for,", "with fire, with water, with each other:", "a small warm room at the edge of Daeho,", "watching the storm spend itself."]
+    ]
+  },
+  {
+    id: "night-willow",
+    title: "Willow at Midnight",
+    korean: "자정의 버들",
+    category: "shadow-light",
+    date: "Moonless Night · Year 20",
+    tags: ["the willow", "sentry", "two souls as one"],
+    excerpt: "Do not fear the dark that moves. Fear the light that never moves.",
+    art: "assets/art/night-willow.svg",
+    stanzas: [
+      ["The willow keeps the night in its hair,", "dropping it strand by strand.", "Underneath, the lantern's circle", "is a small, defended country."],
+      ["Midnight is a long corridor;", "the willow is its sentry.", "It has seen the shadow-shifters pass,", "two souls walking as one."],
+      ["Do not fear the dark that moves.", "Fear the light that never moves.", "The willow bows to both,", "and is the wiser for it."]
+    ]
+  }
+];
+
+window.CATEGORIES = [
+  { id: "all", label: "All Works", korean: "전체" },
+  { id: "shadow-light", label: "Shadow & Light", korean: "그림자와 빛" },
+  { id: "shifting-souls", label: "Shifting Souls", korean: "뒤바뀐 영혼" },
+  { id: "water-fire", label: "Water & Fire", korean: "물과 불" },
+  { id: "daeho-chronicles", label: "Daeho Chronicles", korean: "대호 연대기" }
+];
