@@ -34,13 +34,6 @@ DEBUG = os.environ.get('DJANGO_DEBUG', 'True').strip().lower() in ('1', 'true', 
 # Hosts allowed to serve this site. Add your PythonAnywhere subdomain here
 # (e.g. "myuser.pythonanywhere.com") or set DJANGO_ALLOWED_HOSTS.
 ALLOWED_HOSTS = ["soulofu.onrender.com", "127.0.0.1", "localhost"]
-    h.strip()
-    for h in os.environ.get(
-        'DJANGO_ALLOWED_HOSTS',
-        '127.0.0.1,localhost,testserver,.pythonanywhere.com',
-    ).split(',')
-    if h.strip()
-]
 
 
 # Application definition
