@@ -1,12 +1,16 @@
-# Python
+# Python environments
+venv/
+.venv/
+
+# Python cache
 __pycache__/
 *.pyc
+
+# Database
 db.sqlite3
 
-# Node (test-only deps)
+# Node
 node_modules/
-package.json
-package-lock.json
 
 # User uploads
 media/
