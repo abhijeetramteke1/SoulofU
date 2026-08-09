@@ -549,9 +549,15 @@
   })();
 
   let audioOn = false;
+  // persist the visitor's sound preference (silent vs. on) across visits.
+  // NOTE: the browser still forbids auto-starting audio on load — so this
+  // preference is honored on the next user gesture, not on render.
+  let audioPref = "on";
+  try { audioPref = localStorage.getItem("ifl-audio") === "off" ? "off" : "on"; } catch (e) {}
 
   function setAudioUI(on) {
     audioOn = on;
+    try { localStorage.setItem("ifl-audio", on ? "on" : "off"); } catch (e) {}
     AudioBtn.classList.toggle("on", on);
     AudioBtn.setAttribute("aria-pressed", String(on));
     if (on) { if (hint) hint.classList.add("gone"); detachKick(); }
@@ -602,6 +608,7 @@
     autoplayNow();
   }
   function autoplayNow() {
+    if (audioPref !== "on") return Promise.resolve(false);   // visitor chose silence
     return startAudio().then(ok => {
       if (ok) { hint.classList.add("gone"); detachKick(); }
       return ok;
@@ -612,6 +619,7 @@
 
   autoplayNow().then(ok => {
     if (ok) return;
+    if (audioPref !== "on") return;              // they asked for silence — no nudge
     setTimeout(() => { if (!audioOn) hint.classList.add("show"); }, 1200);
   });
 
