@@ -1109,8 +1109,6 @@ html[data-theme="fire"] .hero::before { opacity: .62; }
 html[data-theme="fire"] .adore-pill:hover { color: #ffb38a; border-color: rgba(255,122,69,.5); }
 html[data-theme="fire"] .adore-pill.on { background: #ff7a45; border-color: #ff7a45; }
 
-.reader-sec .web { width: 100%; height: auto; margin: 6px 0 2px; display: block; }
-.reader-sec .web text { user-select: none; }
 .tag.loc { color: var(--cyan-soft); border-color: rgba(0,229,255,.3); }
 
 /* tidy the reader column on narrow widths too */
@@ -1226,4 +1224,53 @@ html[data-theme="fire"] .hero h1 { text-shadow: 0 10px 50px rgba(0,0,0,.7), 0 0 
 .gallery-head h2 {
   font-family: var(--font-display); font-weight: 600;
   font-size: clamp(1.5rem, 2.6vw, 2rem); letter-spacing: .04em;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════
+   MOBILE OPTIMIZATION · appended (overrides cinematic grid on phones)
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* phones: 2-column aligned gallery, tighter gaps */
+@media (max-width: 640px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px 10px; }
+  .art-card__frame { border-radius: 12px; }
+  .art-card__frame > img { filter: grayscale(.08) saturate(.9) contrast(1.05) brightness(.92); }
+  .art-card__meta { gap: 6px; }
+  .art-card__title { font-size: .86rem; }
+  .art-card__title small { font-size: .56rem; }
+
+  /* adore becomes a compact icon-only heart so 2-up cards stay clean */
+  .adore-pill { padding: 7px 9px; }
+  .adore-pill span { display: none; }
+  .adore-pill svg { width: 15px; height: 15px; margin-top: 0; }
+  .fav-heart { width: 36px; height: 36px; }
+}
+
+/* compact header controls — all four buttons + brand fit without crowding */
+@media (max-width: 640px) {
+  .header-inner { align-items: center; row-gap: 9px; }
+  .fate-seal { height: 38px; padding: 0 11px; font-size: .66rem; }
+  .fate-seal .fate-seal__label { max-width: 64px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .audio-toggle, .theme-toggle { width: 44px; height: 44px; min-width: 44px; min-height: 44px; }
+}
+
+/* battery/perf: still the heavy animated mist + grain on small screens */
+@media (max-width: 640px) {
+  .mist-band, .grain { animation: none; opacity: .5; }
+  .ripple-ring { opacity: .55; }
+}
+
+/* comfortable tap targets on touch devices */
+@media (hover: none) and (pointer: coarse) {
+  .adore-pill { min-height: 40px; }
+  .adore-pill span { display: none; }
+  .filter-btn { min-height: 42px; }
+  .chronicle__chip { min-height: 38px; }
+  .fate__opt { min-height: 52px; }
+}
+
+/* small phones: keep hero readable and stats tidy */
+@media (max-width: 400px) {
+  .hero-stats { gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .stat { min-width: 84px; }
 }

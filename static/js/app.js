@@ -340,8 +340,6 @@
       });
       stanzasEl.appendChild(bonds);
     }
-    // the web — who this soul is bound to, and where it rests
-    if (c.location || (c.relationships || []).length) stanzasEl.appendChild(webSection(c));
 
     // crest stage (wiki still -> ink fallback if hotlink dies)
     stageImg.setAttribute("src", coverOf(c));
@@ -363,47 +361,6 @@
     requestAnimationFrame(() => requestAnimationFrame(() => setTimeout(() => {
       $$(".verse-line, .bio-p, .bond", stanzasEl).forEach(l => l.classList.add("entered"));
     }, 140)));
-  }
-
-  /* ════════════  WEB OF DAEHO — relationship map  ════════════ */
-  function bondChar(c, rel) {
-    if (!rel || !rel.link) return null;
-    return CHARS.find(x => x.id === rel.link) || null;
-  }
-  function shortLabel(s) { return (s || "").length > 11 ? s.slice(0, 10) + "…" : s; }
-  function nodeSvg(x, y, r, glyph, col, label, big) {
-    return `<g>
-      <circle cx="${x}" cy="${y}" r="${r}" fill="#0b111c" stroke="${col}" stroke-width="${big ? 2 : 1.4}"/>
-      <text x="${x}" y="${y + r * 0.38}" text-anchor="middle" font-family="serif" font-size="${big ? r * 1.15 : r * 1.05}" fill="${col}">${glyph}</text>
-      <text x="${x}" y="${y + r + (big ? 22 : 14)}" text-anchor="middle" font-family="'Cinzel','Noto Serif KR',serif" font-size="${big ? 10.5 : 8.5}" fill="${big ? "#e8eef5" : "#94a3b8"}">${label}</text>
-    </g>`;
-  }
-  function webSection(c) {
-    const sec = document.createElement("div");
-    sec.className = "reader-sec";
-    sec.innerHTML = `<h4 class="reader-sec__title">Web of Daeho</h4>`;
-    const W = 300, H = 214, cx = 150, cy = 156;
-    const bonds = (c.relationships || []).slice(0, 4);
-    const n = bonds.length;
-    const centerCol = c.element === "fire" ? "#ff7a45" : "#00e5ff";
-    const edge = (x1, y1, x2, y2, col) =>
-      `<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${col}" stroke-width="1.2" opacity=".5"/>`;
-    const xAt = (i) => (n > 1 ? 52 + i * (196 / (n - 1)) : cx);
-    let svg = `<svg viewBox="0 0 ${W} ${H}" class="web" role="img" aria-label="Relationships of ${c.name}">`;
-    svg += edge(cx, cy, 150, 40, "#94a3b8");   // tie to home
-    bonds.forEach((b, i) => {
-      const t = bondChar(c, b);
-      svg += edge(cx, cy, xAt(i), 108, t ? (t.element === "fire" ? "#ff7a45" : "#00e5ff") : "#646b7a");
-    });
-    svg += nodeSvg(150, 40, 15, "◈", "#94a3b8", shortLabel(c.location || "Daeho"));
-    bonds.forEach((b, i) => {
-      const t = bondChar(c, b);
-      svg += nodeSvg(xAt(i), 108, 16, t ? t.glyph : "✦", t ? (t.element === "fire" ? "#ff7a45" : "#00e5ff") : "#646b7a", shortLabel(b.name));
-    });
-    svg += nodeSvg(cx, cy, 26, c.glyph, centerCol, shortLabel(c.name), true);
-    svg += `</svg>`;
-    sec.insertAdjacentHTML("beforeend", svg);
-    return sec;
   }
 
   /* ── zoom ── */
