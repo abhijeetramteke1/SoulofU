@@ -1615,3 +1615,11 @@ html[data-theme="neon"] .audio-toggle.on {
     box-shadow: 0 0 0 1px rgba(0,229,255,.2), 0 0 18px rgba(0,229,255,.5), 0 4px 14px rgba(0,0,0,.3);
   }
 }
+
+/* ── mobile: center + align the header control buttons as one group ── */
+@media (max-width: 600px) {
+  #chronicle-toggle { margin-left: auto; }
+  .audio-toggle { margin-right: auto; }
+  #chronicle-toggle, .fate-seal, .audio-toggle { flex: none; }
+  .header-inner { gap: 10px 8px; align-items: center; }
+}
