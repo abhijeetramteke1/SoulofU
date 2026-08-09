@@ -73,7 +73,8 @@ window.DAEHO = {
     },
     {
       id: "jang-gang", name: "Jang Gang", korean: "장강",
-      art: "/static/img/jang-gang.jpg",
+      art: "https://static.wikia.nocookie.net/drama/images/8/87/Joo_Sang_Wook.jpg/revision/latest?cb=20240829074613",
+      fallback: "/static/img/jang-gang.jpg",
       role: "The Lord Who Chose the Wrong Vessel", house: "Jang · keeper of the Ice Stone",
       element: "fire", glyph: "石",
       excerpt: "He carried the Ice Stone so the realm wouldn't have to — and it carried him instead.",
@@ -91,7 +92,8 @@ window.DAEHO = {
     },
     {
       id: "yi-su", name: "Master Yi Su", korean: "이수",
-      art: "/static/img/yi-su.jpg",
+      art: "https://static.tvmaze.com/uploads/images/original_untouched/334/835425.jpg",
+      fallback: "/static/img/yi-su.jpg",
       role: "The Realm's Most Vain Genius", house: "wandering master · Jinyowon",
       element: "water", glyph: "睿",
       excerpt: "A thousand-year-old mage who would rather be admired than be right.",
