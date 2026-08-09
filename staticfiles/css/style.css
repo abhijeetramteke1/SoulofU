@@ -203,6 +203,19 @@ body.cursor-interactive #ember-ring  { transform: scale(1.7); border-color: rgba
   100% { opacity: 0; transform: scale(1.6); }
 }
 
+/* ── autoplay hint (browsers require a gesture before any sound) ──────── */
+#audio-hint {
+  position: fixed; left: 50%; bottom: 26px; z-index: 60; pointer-events: none;
+  transform: translate(-50%, 14px); white-space: nowrap;
+  padding: 9px 18px; border-radius: 999px; text-align: center;
+  font-family: var(--font-body); font-size: .72rem; letter-spacing: .14em;
+  color: var(--mist-dim); background: rgba(11,14,20,.62);
+  border: 1px solid rgba(148,163,184,.22); backdrop-filter: blur(8px);
+  opacity: 0; transition: opacity .5s var(--ease-ink), transform .5s var(--ease-ink);
+}
+#audio-hint.show { opacity: 1; transform: translate(-50%, 0); }
+#audio-hint.gone { opacity: 0; transform: translate(-50%, 14px); }
+
 /* ═══════════════════════════════════════════════════════════════════════
    HERO
    ═══════════════════════════════════════════════════════════════════════ */

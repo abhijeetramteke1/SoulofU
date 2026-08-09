@@ -11,7 +11,6 @@
   const SITE = window.SITE || { audioUrl: "", audioLabel: "" };
 
   /* ── theme: apply saved choice before first paint ── */
-  /* ── theme: apply saved choice before first paint ── */
   let theme = "ice";
   try { theme = localStorage.getItem("ifl-theme") === "fire" ? "fire" : "ice"; } catch (e) {}
 
@@ -405,11 +404,16 @@
       timer = setTimeout(schedule, 3600 + Math.random() * 3600);
     }
     return {
-      start() {
+      async start() {
         if (playing) return true;
         const c = ac();
-        // WebAudio contexts start suspended until a user gesture — respect that
-        if (c.state && c.state !== "running") return false;
+        // Browsers create AudioContext in a "suspended" state until a user
+        // gesture. Sound only plays once it's running — resume is async, so
+        // await it instead of bailing out as we used to.
+        if (c.state && c.state !== "running") {
+          try { await c.resume(); } catch (e) { return false; }
+        }
+        if (playing) return true;   // another call started while we waited
         playing = true; clearTimeout(timer);
         const t = c.currentTime + 0.02;
         master.gain.cancelScheduledValues(t);
@@ -438,20 +442,23 @@
     audioOn = on;
     AudioBtn.classList.toggle("on", on);
     AudioBtn.setAttribute("aria-pressed", String(on));
+    if (on) { if (hint) hint.classList.add("gone"); detachKick(); }
   }
 
-  // start audio; returns true only if it is actually audible now
-  function startAudio() {
+  // start audio; resolves true only if sound is actually audible now.
+  // Tries the file first, then falls back to the procedural engine.
+  async function startAudio() {
     if (audioOn) return true;
     if (ambientAudio) {
       try {
-        const p = ambientAudio.play();
-        if (p && p.catch) p.catch(() => {});
+        await ambientAudio.play();
         setAudioUI(true);
         return true;
-      } catch (e) { return false; }
+      } catch (e) { /* 404 / bad codec / blocked -> fall through */ }
     }
-    return AudioEngine.start() ? (setAudioUI(true), true) : false;
+    const ok = await AudioEngine.start();
+    if (ok) setAudioUI(true);
+    return ok;
   }
 
   function stopAudio() {
@@ -462,26 +469,46 @@
   }
 
   AudioBtn.addEventListener("click", () => {
-    const next = audioOn ? stopAudio() : startAudio();
+    if (audioOn) stopAudio(); else startAudio();
     const label = ambientAudio ? (SITE.audioLabel || "uploaded ambient") : "water and silk strings";
     AudioBtn.setAttribute("aria-label", `Toggle ambient sound (${label})`);
   });
 
-  /* ── autoplay: try immediately on load; otherwise start on first
-         interaction anywhere in the page (browsers block gesture-less sound) ── */
-  function tryAutoplay() {
-    if (startAudio()) return;
-    const kick = () => {
-      if (!ambientAudio) AudioEngine.resume();   // unblock the suspended context
-      startAudio();
-      ["pointerdown", "keydown", "touchstart", "click"].forEach(ev =>
-        window.removeEventListener(ev, kick, true));
-    };
+  /* ── autoplay: browsers block sound until a real user gesture, so try on
+         load, then keep listening on the first interaction until the sound
+         is actually audible. Show a hint while it isn't (honest UX — true
+         gesture-less autoplay is impossible on the web). ── */
+  const hint = document.createElement("div");
+  hint.id = "audio-hint";
+  hint.setAttribute("role", "status");
+  hint.textContent = "Tap anywhere to awaken the sound";
+  document.body.appendChild(hint);
+
+  function detachKick() {
     ["pointerdown", "keydown", "touchstart", "click"].forEach(ev =>
-      window.addEventListener(ev, kick, { capture: true, once: true }));
+      window.removeEventListener(ev, onGesture, true));
   }
-  tryAutoplay();
-  AudioBtn.setAttribute("aria-pressed", "false");
+  function onGesture(e) {
+    if (audioOn) return detachKick();
+    // the audio toggle has its own click handler — don't double-fire it
+    if (e.target && e.target.closest && e.target.closest(".audio-toggle")) return;
+    autoplayNow();
+  }
+  function autoplayNow() {
+    return startAudio().then(ok => {
+      if (ok) { hint.classList.add("gone"); detachKick(); }
+      return ok;
+    });
+  }
+  ["pointerdown", "keydown", "touchstart", "click"].forEach(ev =>
+    window.addEventListener(ev, onGesture, { capture: true }));
+
+  // try immediately (a fresh same-origin activation may grant sound straight
+  // away); reveal the hint only after a beat if it still hasn't started
+  autoplayNow().then(ok => {
+    if (ok) return;
+    setTimeout(() => { if (!audioOn) hint.classList.add("show"); }, 1200);
+  });
 
   /* ════════════  INIT  ════════════ */
   load().catch(err => {
