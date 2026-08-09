@@ -1319,3 +1319,68 @@ html[data-theme="neon"] .fate-seal:hover { color:#22E6FF; border-color: rgba(34,
 html[data-theme="neon"] .filter-btn.active { background:#22E6FF; border-color:#22E6FF; box-shadow: 0 0 18px rgba(34,230,255,.5); }
 html[data-theme="neon"] .chronicle__chip.active { background:#22E6FF; border-color:#22E6FF; box-shadow: 0 0 18px rgba(34,230,255,.5); }
 html[data-theme="neon"] .theme-toggle .sigil__core-glow { background: rgba(255,46,176,.4); }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   SMARTPHONE FOCUS · make it feel native on a phone
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* never allow sideways scroll; snaps taps */
+html, body { overflow-x: hidden; }
+button, a, .art-card, .filter-btn, .adore-pill { touch-action: manipulation; -webkit-tap-highlight-color: transparent; }
+body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
+
+@media (max-width: 600px) {
+  /* header: brand gets its own line; controls in a clean row; filters swipable */
+  .header-inner { gap: 10px 12px; align-items: center; }
+  .brand { flex-basis: 100%; }
+  .site-header { padding-top: 12px; }
+  .brand-title { font-size: 1.05rem; letter-spacing: .04em; }
+  .brand-sub { font-size: .6rem; }
+  .nav-filters {
+    order: 3; width: 100%; margin-left: 0;
+    display: flex; flex-wrap: nowrap; justify-content: flex-start;
+    overflow-x: auto; overflow-y: hidden; -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; padding-bottom: 4px;
+  }
+  .nav-filters::-webkit-scrollbar { display: none; }
+  .filter-btn { flex: none; white-space: nowrap; }
+
+  /* hero: fit without losing the drama */
+  .hero { padding: 5rem 0 2.6rem; }
+  .hero h1 { font-size: 2.35rem; letter-spacing: .05em; }
+  .hero-eyebrow { font-size: .6rem; letter-spacing: .24em; }
+  .hero-lede { font-size: .98rem; }
+  .hero-stats { gap: 10px; }
+  .stat b { font-size: 1.35rem; }
+
+  /* cards: tidy 2-up, safe gaps, no overflow */
+  .gallery { gap: 14px 10px; }
+  .art-card__title { font-size: .9rem; }
+  .art-card__title small { font-size: .6rem; letter-spacing: .16em; }
+
+  /* reader fills the phone nicer */
+  .reader__panel { border-radius: 16px 16px 0 0; }
+  .reader__stage { min-height: 38vh; }
+  .reader__actions { flex-wrap: wrap; }
+  .reader__verse { padding-left: 18px; padding-right: 18px; }
+
+  /* modals: honor notches + home indicator */
+  .fate__panel, .chronicle__scroll, .seal__panel {
+    padding-left: max(18px, env(safe-area-inset-left, 18px));
+    padding-right: max(18px, env(safe-area-inset-right, 18px));
+    padding-bottom: calc(24px + env(safe-area-inset-bottom, 0px));
+  }
+  .seal__panel { padding: 0; }
+  .seal__actions { padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .fate__close, .seal__close, .chronicle__close { width: 42px; height: 42px; }
+}
+
+/* tall-modern phones: use dynamic viewport so nothing hides under chrome */
+.fate, .seal, .chronicle, .reader { height: 100vh; height: 100dvh; }
+
+/* very small screens: bigger, clearer cards */
+@media (max-width: 370px) {
+  .gallery { grid-template-columns: repeat(2, 1fr); gap: 12px 8px; }
+  .art-card__title { font-size: .84rem; }
+  .hero h1 { font-size: 2.05rem; }
+}
