@@ -1644,3 +1644,8 @@ html[data-theme="neon"] .audio-toggle.on {
   #chronicle-toggle .fate-seal__label, .fate-seal .fate-seal__label { display: none; }
   .header-inner { gap: 10px 10px; }
 }
+
+/* ── split row: pills stay left, audio pushed far right ── */
+@media (max-width: 900px) {
+  .audio-toggle { margin-left: auto; }
+}
