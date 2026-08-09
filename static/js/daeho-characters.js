@@ -133,6 +133,66 @@ window.DAEHO = {
         { name: "Jang Uk", note: "the only peer who forgets to bow", link: "jang-uk" }
       ],
       tags: ["water", "royal", "court"]
+    },
+    {
+      id: "seo-yul", name: "Seo Yul", korean: "서율",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/7/7b/Seo_yul.jpg/revision/latest?cb=20230222194721",
+      role: "The Realm's Most Beautiful Blade", house: "the noble Seo house",
+      element: "water", glyph: "律",
+      location: "Daeho · the noble quarter",
+      excerpt: "Daeho's most beautiful man — and its sharpest unclaimed blade.",
+      bio: [
+        "Seo Yul of the Seo house is a prodigy whose beauty the realm gossips about and whose sword it has learned to respect. He moves through Daeho's courts the way the lake reflects daylight — effortlessly, and not quite honestly.",
+        "Denied the inheritance his birth should have promised, he taught himself that grace is armour: smile first, so no one sees the edge. Behind the famous beauty is a quiet hunger to be more than Daeho's prettiest rumour."
+      ],
+      lines: [
+        "“They say beauty is a blade that needs no edge. They forget I am also a blade.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "a friend hidden inside a rivalry", link: "jang-uk" },
+        { name: "Mu-Deok", note: "who keeps surprising even him", link: "bubu" }
+      ],
+      tags: ["water", "swordsman", "noble"]
+    },
+    {
+      id: "park-jin", name: "Park Jin", korean: "박진",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/a/ad/Park_jin.jpg/revision/latest?cb=20230222204559",
+      role: "The Upstart of Daeho's Mages", house: "Jinyowon's outer halls",
+      element: "fire", glyph: "鎭",
+      location: "Jinyowon · the outer halls",
+      excerpt: "A working-class mage who climbed to the top by refusing to be ignored.",
+      bio: [
+        "Park Jin earned his place at the summit of Daeho's mage circles with neither great blood nor great luck — only grit, quick wit, and the nerve to swing at anyone who looked down on him. He is the realm's favourite underdog: loud, proud, impossible to dismiss.",
+        "Where the old houses hoard their arts, Park Jin treats power as a trade to be won in the open. He has spent as much energy holding his seat as using it — and he enjoys both entirely."
+      ],
+      lines: [
+        "“Born with nothing, taught by no one — and here I am. Still. Annoying, isn't it.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "the storm he keeps warning", link: "jang-uk" },
+        { name: "Kim Do-ju", note: "the mage he never trusted", link: "kim-do-ju" }
+      ],
+      tags: ["fire", "mage", "underdog"]
+    },
+    {
+      id: "kim-do-ju", name: "Kim Do-ju", korean: "김도주",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/6/62/Kim_do_ju.jpeg/revision/latest?cb=20230222204730",
+      role: "The Mask Behind the Hearth", house: "the court's shadow",
+      element: "fire", glyph: "暗",
+      location: "Daeho · the court's shadow",
+      excerpt: "The mage who wore a mother's face as a mask — and a viper underneath.",
+      bio: [
+        "Kim Do-ju is a mage of terrible skill and infinite patience, best remembered for the years she spent wearing a facade of warmth inside a great house. She taught in daylight and schemed in shadow, moving pieces no one knew were on the board.",
+        "When the mask finally came away, the realm understood why she was feared — not for brute strength, but for how deeply she had stitched herself into the house's seams, so that unpicking her meant unpicking everything around her."
+      ],
+      lines: [
+        "“A mask is only useful as long as the hand behind it is never seen.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "the child she claimed, then betrayed", link: "jang-uk" },
+        { name: "Jang Gang", note: "whose ruin she served", link: "jang-gang" }
+      ],
+      tags: ["fire", "schemer", "mask"]
     }
   ]
 };
