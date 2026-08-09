@@ -164,10 +164,6 @@
       <div class="art-card__meta">
         <span class="dot"></span>
         <div class="art-card__title">${c.name}<small>${c.korean || ""}</small></div>
-        <button class="adore-pill${isFave(c) ? " on" : ""}" data-id="${c.id}" aria-pressed="${isFave(c)}" aria-label="${isFave(c) ? "Remove adoration from " : "Adore "}${c.name}">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.2 5.2 5.2 0 0 1 21.2 11C19 15.4 12 20 12 20z"/></svg>
-          <span>${isFave(c) ? "Adored" : "Adore"}</span>
-        </button>
       </div>`;
 
     art.querySelector(".fav-heart").addEventListener("click", (e) => {
@@ -175,11 +171,6 @@
       toggleFave(c);
     });
     art.querySelector(".fav-heart").addEventListener("keydown", (e) => {
-      if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); toggleFave(c); }
-    });
-    const adoreBt = art.querySelector(".adore-pill");
-    adoreBt.addEventListener("click", (e) => { e.preventDefault(); e.stopPropagation(); toggleFave(c); });
-    adoreBt.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") { e.preventDefault(); e.stopPropagation(); toggleFave(c); }
     });
 
@@ -573,7 +564,6 @@
     autoplayNow();
   }
   function autoplayNow() {
-    if (audioPref !== "on") return Promise.resolve(false);   // visitor chose silence
     return startAudio().then(ok => {
       if (ok) { hint.classList.add("gone"); detachKick(); }
       return ok;
@@ -582,9 +572,9 @@
   ["pointerdown", "keydown", "touchstart", "click"].forEach(ev =>
     window.addEventListener(ev, onGesture, { capture: true }));
 
+  // try to start music as soon as the page loads (browser autoplay policy permitting)
   autoplayNow().then(ok => {
     if (ok) return;
-    if (audioPref !== "on") return;              // they asked for silence — no nudge
     setTimeout(() => { if (!audioOn) hint.classList.add("show"); }, 1200);
   });
 
