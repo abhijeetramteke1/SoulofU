@@ -1511,3 +1511,40 @@ html[data-theme="neon"] .audio-toggle.on {
   background: linear-gradient(160deg, rgba(255,46,176,.46), rgba(255,46,176,.14));
   border-color: #FF2EB0; box-shadow: 0 0 18px rgba(255,46,176,.5);
 }
+
+/* ── FATE — the standout highlight button ── */
+#fate-toggle {
+  color: #fff;
+  border-color: rgba(0,229,255,.6);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.16), transparent 55%),
+    linear-gradient(160deg, rgba(0,229,255,.5), rgba(99,102,241,.38));
+  box-shadow:
+    0 0 0 1px rgba(0,229,255,.18),
+    0 0 16px rgba(0,229,255,.42),
+    0 0 40px rgba(0,229,255,.16),
+    0 4px 14px rgba(0,0,0,.3);
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+  transition: all .3s var(--ease-ink);
+}
+#fate-toggle:hover {
+  color: #fff;
+  border-color: rgba(0,229,255,.85);
+  background:
+    radial-gradient(circle at 32% 28%, rgba(255,255,255,.22), transparent 55%),
+    linear-gradient(160deg, rgba(0,229,255,.62), rgba(99,102,241,.5));
+  box-shadow: 0 0 0 1px rgba(0,229,255,.25), 0 0 24px rgba(0,229,255,.6), 0 0 60px rgba(0,229,255,.24), 0 6px 18px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+/* the label sits on the highlight nicely */
+#fate-toggle .fate-seal__label { color: #fff; }
+
+/* mobile: keep the highlight even as a round icon button */
+@media (max-width: 600px) {
+  #fate-toggle {
+    color: #fff;
+    background: linear-gradient(160deg, rgba(0,229,255,.55), rgba(99,102,241,.42));
+    border-color: rgba(0,229,255,.7);
+    box-shadow: 0 0 0 1px rgba(0,229,255,.2), 0 0 18px rgba(0,229,255,.5), 0 4px 14px rgba(0,0,0,.3);
+  }
+}
