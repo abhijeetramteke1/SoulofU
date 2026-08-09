@@ -14,6 +14,7 @@ window.DAEHO = {
   characters: [
     {
       id: "jang-uk", name: "Jang Uk", korean: "장욱",
+      popularity: 100,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/a/a4/Jung_uk.jpg/revision/latest?cb=20230222193823",
       fallback: "/static/img/jang-uk.jpg",
       role: "Heir of the Jang House", house: "Jang · pupil of Jinyowon",
@@ -35,6 +36,7 @@ window.DAEHO = {
     },
     {
       id: "naksu", name: "Naksu", korean: "낙수",
+      popularity: 96,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/7/70/Cho_Yeong.jpg/revision/latest?cb=20230221221515",
       fallback: "/static/img/naksu.jpg",
       role: "The Flame That Wouldn't Die", house: "the whispered assassin",
@@ -55,6 +57,7 @@ window.DAEHO = {
     },
     {
       id: "bubu", name: "Mu-Deok · Bubu", korean: "무덕",
+      popularity: 93,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/5/5e/Mu-deok.jpeg/revision/latest?cb=20230222193452",
       fallback: "/static/img/bubu.jpg",
       role: "A Tempest in an Innkeeper's Body", house: "Jinyowon's strongest maid",
@@ -76,6 +79,7 @@ window.DAEHO = {
     },
     {
       id: "jang-gang", name: "Jang Gang", korean: "장강",
+      popularity: 82,
       art: "https://static.wikia.nocookie.net/drama/images/8/87/Joo_Sang_Wook.jpg/revision/latest?cb=20240829074613",
       fallback: "/static/img/jang-gang.jpg",
       role: "The Lord Who Chose the Wrong Vessel", house: "Jang · keeper of the Ice Stone",
@@ -96,6 +100,7 @@ window.DAEHO = {
     },
     {
       id: "yi-su", name: "Master Yi Su", korean: "이수",
+      popularity: 78,
       art: "https://static.tvmaze.com/uploads/images/original_untouched/334/835425.jpg",
       fallback: "/static/img/yi-su.jpg",
       role: "The Realm's Most Vain Genius", house: "wandering master · Jinyowon",
@@ -116,6 +121,7 @@ window.DAEHO = {
     },
     {
       id: "crown-prince", name: "The Crown Prince", korean: "세자",
+      popularity: 74,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/c/c1/Go_won.jpg/revision/latest?cb=20230222204444",
       fallback: "/static/img/crown-prince.jpg",
       role: "The Sharpest Blade, the Loneliest Heir", house: "the royal court",
@@ -136,6 +142,7 @@ window.DAEHO = {
     },
     {
       id: "seo-yul", name: "Seo Yul", korean: "서율",
+      popularity: 88,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/7/7b/Seo_yul.jpg/revision/latest?cb=20230222194721",
       role: "The Realm's Most Beautiful Blade", house: "the noble Seo house",
       element: "water", glyph: "律",
@@ -156,6 +163,7 @@ window.DAEHO = {
     },
     {
       id: "park-jin", name: "Park Jin", korean: "박진",
+      popularity: 70,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/a/ad/Park_jin.jpg/revision/latest?cb=20230222204559",
       role: "The Upstart of Daeho's Mages", house: "Jinyowon's outer halls",
       element: "fire", glyph: "鎭",
@@ -176,6 +184,7 @@ window.DAEHO = {
     },
     {
       id: "kim-do-ju", name: "Kim Do-ju", korean: "김도주",
+      popularity: 64,
       art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/6/62/Kim_do_ju.jpeg/revision/latest?cb=20230222204730",
       role: "The Mask Behind the Hearth", house: "the court's shadow",
       element: "fire", glyph: "暗",

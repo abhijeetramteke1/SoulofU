@@ -50,7 +50,10 @@
 
   /* ════════════  CHARACTER DATA  ════════════ */
   const DATA = window.DAEHO || { filters: [], characters: [] };
-  let CHARS = (DATA.characters || []).map((c, i) => ({ ...c, _index: i }));
+  let CHARS = (DATA.characters || [])
+    .map((c, i) => ({ ...c, _index: i, popularity: c.popularity || 50 }))
+    .sort((a, b) => b.popularity - a.popularity)   // most-loved first
+    .map((c, i) => ({ ...c, _index: i }));
   const FILTERS = DATA.filters || [];
   const FILTERS_MAP = {};
   FILTERS.forEach(f => (FILTERS_MAP[f.id] = f));
