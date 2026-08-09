@@ -29,7 +29,6 @@ window.DAEHO = {
         "“They told me I was born without the fire. They forgot to tell me I could learn to hold a match.”"
       ],
       relationships: [
-        { name: "Master Yi Su", note: "his dancing, vain, brilliant tutor", link: "yi-su" },
         { name: "Bubu", note: "the inn maid who keeps surprising him", link: "bubu" }
       ],
       tags: ["fire", "jang", "jinowon's heir"]
@@ -76,48 +75,6 @@ window.DAEHO = {
         { name: "the inn", note: "her uncomplicated, beloved home" }
       ],
       tags: ["water", "maid", "underestimate her"]
-    },
-    {
-      id: "jang-gang", name: "Jang Gang", korean: "장강",
-      popularity: 82,
-      art: "https://static.wikia.nocookie.net/drama/images/8/87/Joo_Sang_Wook.jpg/revision/latest?cb=20240829074613",
-      fallback: "/static/img/jang-gang.jpg",
-      role: "The Lord Who Chose the Wrong Vessel", house: "Jang · keeper of the Ice Stone",
-      element: "fire", glyph: "石",
-      location: "Jinyowon · the Ice Stone tower",
-      excerpt: "He carried the Ice Stone so the realm wouldn't have to — and it carried him instead.",
-      bio: [
-        "Jang Gang was the Jang patriarch, a great fire-artist who took the Ice Stone into himself to keep it from the realm's grasp. It was an act of terrible devotion: to lock away the relic, he had to become its cage.",
-        "Power of that order does not sit quietly. The lord who once ruled a house would find himself, at the wrong hour, watching his own hand move to music he had not heard — proof, some say, of how thin the line is between keeper and kept."
-      ],
-      lines: [
-        "“You think a cage protects the realm from the storm. You forget who has to live inside it.”"
-      ],
-      relationships: [
-        { name: "Jang Uk", note: "the son he could never safely love", link: "jang-uk" }
-      ],
-      tags: ["fire", "ice stone", "jang"]
-    },
-    {
-      id: "yi-su", name: "Master Yi Su", korean: "이수",
-      popularity: 78,
-      art: "https://static.tvmaze.com/uploads/images/original_untouched/334/835425.jpg",
-      fallback: "/static/img/yi-su.jpg",
-      role: "The Realm's Most Vain Genius", house: "wandering master · Jinyowon",
-      element: "water", glyph: "睿",
-      location: "Daeho · wandering",
-      excerpt: "A thousand-year-old mage who would rather be admired than be right.",
-      bio: [
-        "Master Yi Su is Daeho's oldest and most insufferably brilliant living mage — a man who has seen eras pass and still regrets none of his own choices, only the audiences that failed to applaud them. He tutors for his own amusement and calls it mercy.",
-        "Beneath the vanity is a mind that has forgotten nothing: every art, every flaw, every fire he let burn. He claims to teach for money; the truth is he teaches because watching disaster bloom never gets old, and occasionally he misses being useful."
-      ],
-      lines: [
-        "“I am a thousand years old, and you are one mistake away from becoming a very good story.”"
-      ],
-      relationships: [
-        { name: "Jang Uk", note: "his favourite unfinished disaster", link: "jang-uk" }
-      ],
-      tags: ["water", "master", "ancient"]
     },
     {
       id: "crown-prince", name: "The Crown Prince", korean: "세자",
@@ -198,8 +155,7 @@ window.DAEHO = {
         "“A mask is only useful as long as the hand behind it is never seen.”"
       ],
       relationships: [
-        { name: "Jang Uk", note: "the child she claimed, then betrayed", link: "jang-uk" },
-        { name: "Jang Gang", note: "whose ruin she served", link: "jang-gang" }
+        { name: "Jang Uk", note: "the child she claimed, then betrayed", link: "jang-uk" }
       ],
       tags: ["fire", "schemer", "mask"]
     }
