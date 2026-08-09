@@ -1467,3 +1467,47 @@ html[data-theme="neon"] .audio-toggle.on {
   border-color: rgba(255,46,176,.85);
   box-shadow: inset 0 0 18px rgba(255,46,176,.36), 0 0 30px rgba(255,46,176,.65), 0 0 68px rgba(255,46,176,.3), 0 6px 16px rgba(0,0,0,.5);
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   CLEAN BUTTON REDESIGN — simple, crisp, modern toggles (no ornament)
+   ═══════════════════════════════════════════════════════════════════════ */
+.theme-toggle, .audio-toggle {
+  position: relative;
+  width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(148,163,184,.3);
+  background: rgba(10,15,24,.72);
+  color: var(--cyan-soft);
+  display: grid; place-items: center;
+  box-shadow: 0 4px 14px rgba(0,0,0,.35);
+  transition: border-color .25s, color .25s, background .25s, box-shadow .25s;
+}
+/* strip the ornate sigil bits — keep just the clean icon */
+.theme-toggle .sigil__ring, .theme-toggle .sigil__ring--2,
+.theme-toggle .sigil__core-glow, .theme-toggle .sigil__spark,
+.theme-toggle .sigil__pulse { display: none; }
+
+.theme-toggle:hover, .audio-toggle:hover {
+  color: #fff; border-color: var(--cyan-soft);
+  box-shadow: 0 0 0 3px rgba(0,229,255,.12), 0 6px 16px rgba(0,0,0,.4);
+}
+.audio-toggle.on {
+  color: #fff;
+  background: linear-gradient(160deg, rgba(0,229,255,.42), rgba(0,229,255,.12));
+  border-color: var(--cyan-soft);
+  box-shadow: 0 0 16px rgba(0,229,255,.42);
+}
+html[data-theme="fire"] .theme-toggle:hover, html[data-theme="fire"] .audio-toggle:hover {
+  border-color: #ff7a45; box-shadow: 0 0 0 3px rgba(255,107,53,.16), 0 6px 16px rgba(0,0,0,.4);
+}
+html[data-theme="fire"] .audio-toggle.on {
+  background: linear-gradient(160deg, rgba(255,107,53,.42), rgba(255,107,53,.12));
+  border-color: #ff7a45; box-shadow: 0 0 16px rgba(255,107,53,.45);
+}
+html[data-theme="neon"] .theme-toggle:hover, html[data-theme="neon"] .audio-toggle:hover {
+  border-color: #FF2EB0; box-shadow: 0 0 0 3px rgba(255,46,176,.16), 0 6px 16px rgba(0,0,0,.4);
+}
+html[data-theme="neon"] .audio-toggle.on {
+  background: linear-gradient(160deg, rgba(255,46,176,.46), rgba(255,46,176,.14));
+  border-color: #FF2EB0; box-shadow: 0 0 18px rgba(255,46,176,.5);
+}
