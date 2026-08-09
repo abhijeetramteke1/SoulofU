@@ -1395,3 +1395,15 @@ body { -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
   .theme-toggle { margin-left: auto; }
   .fate-seal { margin-left: 2px; }
 }
+
+/* ── mobile: uniform round icon buttons, one clean row ── */
+@media (max-width: 600px) {
+  #chronicle-toggle, .fate-seal, .audio-toggle, .theme-toggle {
+    width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+    padding: 0; border-radius: 50%; justify-content: center; flex: none;
+  }
+  #chronicle-toggle .fate-seal__label, .fate-seal .fate-seal__label { display: none; }
+  #chronicle-toggle { margin-left: auto; }   /* push the group right */
+  .theme-toggle { margin-left: 0; }
+  .fate-seal { margin-left: 0; }
+}
