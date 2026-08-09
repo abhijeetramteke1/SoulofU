@@ -1548,3 +1548,38 @@ html[data-theme="neon"] .audio-toggle.on {
     box-shadow: 0 0 0 1px rgba(0,229,255,.2), 0 0 18px rgba(0,229,255,.5), 0 4px 14px rgba(0,0,0,.3);
   }
 }
+
+/* ── CHRONICLE — the second highlight (warm gold) ── */
+#chronicle-toggle {
+  color: #fff;
+  border-color: rgba(251,191,36,.55);
+  background:
+    radial-gradient(circle at 30% 26%, rgba(255,255,255,.18), transparent 55%),
+    linear-gradient(160deg, rgba(251,191,36,.52), rgba(180,110,20,.45));
+  box-shadow:
+    0 0 0 1px rgba(251,191,36,.18),
+    0 0 16px rgba(251,191,36,.42),
+    0 0 42px rgba(251,191,36,.15),
+    0 4px 14px rgba(0,0,0,.3);
+  text-shadow: 0 1px 4px rgba(0,0,0,.4);
+  transition: all .3s var(--ease-ink);
+}
+#chronicle-toggle:hover {
+  color: #fff;
+  border-color: rgba(251,191,36,.85);
+  background:
+    radial-gradient(circle at 30% 26%, rgba(255,255,255,.24), transparent 55%),
+    linear-gradient(160deg, rgba(251,191,36,.66), rgba(180,110,20,.56));
+  box-shadow: 0 0 0 1px rgba(251,191,36,.24), 0 0 24px rgba(251,191,36,.58), 0 0 60px rgba(251,191,36,.22), 0 6px 18px rgba(0,0,0,.35);
+  transform: translateY(-1px);
+}
+#chronicle-toggle .fate-seal__label { color: #fff; }
+
+@media (max-width: 600px) {
+  #chronicle-toggle {
+    color: #fff;
+    background: linear-gradient(160deg, rgba(251,191,36,.58), rgba(180,110,20,.48));
+    border-color: rgba(251,191,36,.7);
+    box-shadow: 0 0 0 1px rgba(251,191,36,.2), 0 0 18px rgba(251,191,36,.5), 0 4px 14px rgba(0,0,0,.3);
+  }
+}
