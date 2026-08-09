@@ -11,20 +11,21 @@
   const SITE = window.SITE || { audioUrl: "", audioLabel: "" };
 
   /* ── theme: apply saved choice before first paint ── */
+  const THEMES = ["ice", "fire", "neon"];
   let theme = "ice";
-  try { theme = localStorage.getItem("ifl-theme") === "fire" ? "fire" : "ice"; } catch (e) {}
+  try { const s = localStorage.getItem("ifl-theme"); if (THEMES.includes(s)) theme = s; } catch (e) {}
 
   const ThemeBtn = $("#theme-toggle");
   const Veil = $("#veil");
+
+  const VEIL_C = { ice: "rgba(0,229,255,0.6)", fire: "rgba(255,107,53,0.6)", neon: "rgba(255,46,176,0.6)" };
 
   function setTheme(t, animate) {
     theme = t;
     document.documentElement.setAttribute("data-theme", t);
     try { localStorage.setItem("ifl-theme", t); } catch (e) {}
-    ThemeBtn.setAttribute("aria-pressed", String(t === "fire"));
-    ThemeBtn.setAttribute("aria-label", t === "fire"
-      ? "Switch to the Ice theme"
-      : "Switch to the Fire theme");
+    ThemeBtn.setAttribute("aria-pressed", String(t === "fire" || t === "neon"));
+    ThemeBtn.setAttribute("aria-label", "Switch theme");
     if (animate) {
       ThemeBtn.classList.remove("casting"); void ThemeBtn.offsetWidth;
       ThemeBtn.classList.add("casting");
@@ -37,13 +38,12 @@
   ThemeBtn.addEventListener("click", () => {
     if (castBusy) return;
     castBusy = true;
-    const next = theme === "ice" ? "fire" : "ice";
-    Veil.style.setProperty("--veil-c",
-      next === "fire" ? "rgba(255,107,53,0.6)" : "rgba(0,229,255,0.6)");
+    const next = THEMES[(THEMES.indexOf(theme) + 1) % THEMES.length];   // ice -> fire -> neon -> ice
+    Veil.style.setProperty("--veil-c", VEIL_C[next]);
     Veil.classList.remove("run"); void Veil.offsetWidth;
     Veil.classList.add("run");
     setTheme(next, true);
-    try { AudioEngine.setRegime(next); } catch (e) {}
+    try { AudioEngine.setRegime(next === "neon" ? "ice" : next); } catch (e) {}
     setTimeout(() => { setTheme(next, false); }, 300);
     setTimeout(() => { Veil.classList.remove("run"); castBusy = false; }, 1020);
   });

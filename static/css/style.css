@@ -1272,3 +1272,50 @@ html[data-theme="fire"] .hero h1 { text-shadow: 0 10px 50px rgba(0,0,0,.7), 0 0 
   .hero-stats { gap: 14px; flex-wrap: wrap; justify-content: center; }
   .stat { min-width: 84px; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   NEON THEME — third realm: electric cyan + hot magenta on the void
+   ═══════════════════════════════════════════════════════════════════════ */
+html[data-theme="neon"] {
+  --void:      #05070d;
+  --void-deep: #03040a;
+  --mist-pearl:#F3F7FF;
+  --mist-dim:  #9fb4d0;
+  --cyan:      #22E6FF;      /* electric cyan */
+  --cyan-soft: #00C8FF;
+  --glow-cyan: 0 0 18px rgba(34,230,255,.5);
+  --glow-cyan-strong: 0 0 34px rgba(34,230,255,.72), 0 0 90px rgba(34,230,255,.35);
+}
+/* neon accent punch — hot magenta for the adore/fav/seal moments */
+html[data-theme="neon"] .fav-heart.on,
+html[data-theme="neon"] .adore-pill.on,
+html[data-theme="neon"] .seal-verse.adore.on {
+  background: #FF2EB0; border-color: #FF2EB0;
+  box-shadow: 0 0 20px rgba(255,46,176,.65), 0 0 44px rgba(255,46,176,.35);
+}
+html[data-theme="neon"] .adore-pill:hover,
+html[data-theme="neon"] .fav-heart:hover { color:#22E6FF; border-color:rgba(34,230,255,.55); }
+html[data-theme="neon"] .hero h1 {
+  text-shadow: 0 12px 60px rgba(4,8,16,.85), 0 0 36px rgba(34,230,255,.6), 0 0 110px rgba(255,46,176,.4);
+}
+html[data-theme="neon"] .hero-eyebrow { color: #8adcff; }
+html[data-theme="neon"] .stat b { text-shadow: 0 0 16px rgba(34,230,255,.7); }
+html[data-theme="neon"] .art-card__meta::after {
+  background: linear-gradient(90deg, rgba(34,230,255,.42), rgba(255,46,176,.42), transparent 80%);
+}
+html[data-theme="neon"] .art-card__frame { box-shadow:
+  inset 0 0 0 1px rgba(34,230,255,.12),
+  inset 0 -70px 100px -50px rgba(5,7,13,.7),
+  0 0 26px rgba(34,230,255,.12), 0 18px 48px -24px rgba(0,0,0,.6); }
+html[data-theme="neon"] .art-card__frame::before {
+  background: linear-gradient(180deg, rgba(5,7,13,.1), transparent 32%, transparent 62%, rgba(5,7,13,.5));
+}
+html[data-theme="neon"] .art-card__overlay { background: linear-gradient(180deg, rgba(5,7,15,.5), rgba(5,7,15,.85)); }
+html[data-theme="neon"] .reader-sec__title::after {
+  background: linear-gradient(90deg, rgba(34,230,255,.4), transparent);
+}
+html[data-theme="neon"] .seal-verse { color:#22E6FF; border-color:rgba(34,230,255,.4); }
+html[data-theme="neon"] .fate-seal:hover { color:#22E6FF; border-color: rgba(34,230,255,.55); }
+html[data-theme="neon"] .filter-btn.active { background:#22E6FF; border-color:#22E6FF; box-shadow: 0 0 18px rgba(34,230,255,.5); }
+html[data-theme="neon"] .chronicle__chip.active { background:#22E6FF; border-color:#22E6FF; box-shadow: 0 0 18px rgba(34,230,255,.5); }
+html[data-theme="neon"] .theme-toggle .sigil__core-glow { background: rgba(255,46,176,.4); }
