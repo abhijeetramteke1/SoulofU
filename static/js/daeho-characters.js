@@ -18,6 +18,7 @@ window.DAEHO = {
       fallback: "/static/img/jang-uk.jpg",
       role: "Heir of the Jang House", house: "Jang · pupil of Jinyowon",
       element: "fire", glyph: "烏",
+      location: "Daeho · the capital",
       excerpt: "The boy born with nothing, who refused to stay that way.",
       bio: [
         "Jang Uk is the son the realm couldn't keep — born without the power every Jang should carry, cast aside by a house that measured worth in fire. He grew up as the commoner who belonged to no one, and sharpened that loneliness into a blade.",
@@ -27,8 +28,8 @@ window.DAEHO = {
         "“They told me I was born without the fire. They forgot to tell me I could learn to hold a match.”"
       ],
       relationships: [
-        { name: "Master Yi Su", note: "his dancing, vain, brilliant tutor" },
-        { name: "Bubu", note: "the inn maid who keeps surprising him" }
+        { name: "Master Yi Su", note: "his dancing, vain, brilliant tutor", link: "yi-su" },
+        { name: "Bubu", note: "the inn maid who keeps surprising him", link: "bubu" }
       ],
       tags: ["fire", "jang", "jinowon's heir"]
     },
@@ -38,6 +39,7 @@ window.DAEHO = {
       fallback: "/static/img/naksu.jpg",
       role: "The Flame That Wouldn't Die", house: "the whispered assassin",
       element: "fire", glyph: "焰",
+      location: "Jinyowon's shadow",
       excerpt: "A storm you should have let go — now it has nowhere else to burn.",
       bio: [
         "Naksu is the name rumours say before they cross themselves — an assassin of terrible skill whose fire refused to be extinguished, even when fate took everything from her. She is less a person than a pressure the realm keeps pretending it can ignore.",
@@ -47,7 +49,7 @@ window.DAEHO = {
         "“You cannot put out a fire that has already decided it is the only thing left of you.”"
       ],
       relationships: [
-        { name: "Jang Uk", note: "they keep meeting like an argument" }
+        { name: "Jang Uk", note: "they keep meeting like an argument", link: "jang-uk" }
       ],
       tags: ["fire", "assassin", "jinyowon"]
     },
@@ -57,6 +59,7 @@ window.DAEHO = {
       fallback: "/static/img/bubu.jpg",
       role: "A Tempest in an Innkeeper's Body", house: "Jinyowon's strongest maid",
       element: "water", glyph: "水",
+      location: "The inn · Daeho",
       excerpt: "The realm's most unremarkable maid — and the last person it should underestimate.",
       bio: [
         "Bubu is the inn's favourite, smallest, strongest maid — a walking contradiction who bends steel with one hand and serves tea with the other. Everyone loves her; no one thinks to look twice. That is precisely her gift.",
@@ -66,7 +69,7 @@ window.DAEHO = {
         "“I'm just the maid. Please don't mind me.” — while the candle across the room quietly stops burning."
       ],
       relationships: [
-        { name: "Jang Uk", note: "her favourite storm to feed" },
+        { name: "Jang Uk", note: "her favourite storm to feed", link: "jang-uk" },
         { name: "the inn", note: "her uncomplicated, beloved home" }
       ],
       tags: ["water", "maid", "underestimate her"]
@@ -77,6 +80,7 @@ window.DAEHO = {
       fallback: "/static/img/jang-gang.jpg",
       role: "The Lord Who Chose the Wrong Vessel", house: "Jang · keeper of the Ice Stone",
       element: "fire", glyph: "石",
+      location: "Jinyowon · the Ice Stone tower",
       excerpt: "He carried the Ice Stone so the realm wouldn't have to — and it carried him instead.",
       bio: [
         "Jang Gang was the Jang patriarch, a great fire-artist who took the Ice Stone into himself to keep it from the realm's grasp. It was an act of terrible devotion: to lock away the relic, he had to become its cage.",
@@ -86,7 +90,7 @@ window.DAEHO = {
         "“You think a cage protects the realm from the storm. You forget who has to live inside it.”"
       ],
       relationships: [
-        { name: "Jang Uk", note: "the son he could never safely love" }
+        { name: "Jang Uk", note: "the son he could never safely love", link: "jang-uk" }
       ],
       tags: ["fire", "ice stone", "jang"]
     },
@@ -96,6 +100,7 @@ window.DAEHO = {
       fallback: "/static/img/yi-su.jpg",
       role: "The Realm's Most Vain Genius", house: "wandering master · Jinyowon",
       element: "water", glyph: "睿",
+      location: "Daeho · wandering",
       excerpt: "A thousand-year-old mage who would rather be admired than be right.",
       bio: [
         "Master Yi Su is Daeho's oldest and most insufferably brilliant living mage — a man who has seen eras pass and still regrets none of his own choices, only the audiences that failed to applaud them. He tutors for his own amusement and calls it mercy.",
@@ -105,7 +110,7 @@ window.DAEHO = {
         "“I am a thousand years old, and you are one mistake away from becoming a very good story.”"
       ],
       relationships: [
-        { name: "Jang Uk", note: "his favourite unfinished disaster" }
+        { name: "Jang Uk", note: "his favourite unfinished disaster", link: "jang-uk" }
       ],
       tags: ["water", "master", "ancient"]
     },
@@ -115,6 +120,7 @@ window.DAEHO = {
       fallback: "/static/img/crown-prince.jpg",
       role: "The Sharpest Blade, the Loneliest Heir", house: "the royal court",
       element: "water", glyph: "冠",
+      location: "Cheonbugwan · the royal court",
       excerpt: "Every lesson taught him to win; none taught him how to rest afterward.",
       bio: [
         "The Crown Prince of Daeho is the sword the realm keeps drawn — brilliant, sharp, and marooned at the centre of a court that smiles in a language he stopped trusting years ago. He reads betrayal in every bow, because it is usually there.",
@@ -124,7 +130,7 @@ window.DAEHO = {
         "“When every hand bows to you, you learn to count the ones that mean it.”"
       ],
       relationships: [
-        { name: "Jang Uk", note: "the only peer who forgets to bow" }
+        { name: "Jang Uk", note: "the only peer who forgets to bow", link: "jang-uk" }
       ],
       tags: ["water", "royal", "court"]
     }

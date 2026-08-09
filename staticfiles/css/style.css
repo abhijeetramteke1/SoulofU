@@ -1080,3 +1080,41 @@ html[data-theme="fire"] .hero::before { opacity: .62; }
   .header-inner { flex-wrap: wrap; gap: 10px 12px; }
   .nav-filters { order: 3; width: 100%; justify-content: center; margin-left: 0; }
 }
+
+/* ── shrine alignment + adore pill + relationship web ── */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(255px, 1fr));
+  gap: 30px 24px;
+  column-count: auto; column-gap: normal;
+}
+.art-card { break-inside: auto; margin-bottom: 0; }
+.art-card__frame { aspect-ratio: 3 / 4; overflow: hidden; }
+.art-card__frame > img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+
+.art-card__meta { gap: 12px; }
+.art-card__title { flex: 1; min-width: 0; }
+
+.adore-pill {
+  appearance: none; flex: none; display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 13px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-body); font-size: .7rem; letter-spacing: .05em; line-height: 1;
+  color: var(--mist-dim); background: rgba(148,163,184,.05); border: 1px solid rgba(148,163,184,.3);
+  transition: all .3s var(--ease-ink);
+}
+.adore-pill svg { margin-top: -1px; flex: none; }
+.adore-pill span { white-space: nowrap; }
+.adore-pill:hover { color: var(--cyan); border-color: rgba(0,229,255,.5); box-shadow: var(--glow-cyan); }
+.adore-pill.on { color: #fff; background: var(--cyan); border-color: var(--cyan); box-shadow: var(--glow-cyan-strong); }
+html[data-theme="fire"] .adore-pill:hover { color: #ffb38a; border-color: rgba(255,122,69,.5); }
+html[data-theme="fire"] .adore-pill.on { background: #ff7a45; border-color: #ff7a45; }
+
+.reader-sec .web { width: 100%; height: auto; margin: 6px 0 2px; display: block; }
+.reader-sec .web text { user-select: none; }
+.tag.loc { color: var(--cyan-soft); border-color: rgba(0,229,255,.3); }
+
+/* tidy the reader column on narrow widths too */
+@media (max-width: 620px) {
+  .reader__actions { width: 100%; }
+  .adore-pill { padding: 5px 11px; }
+}
