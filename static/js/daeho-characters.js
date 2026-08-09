@@ -1,0 +1,130 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   THE SHRINE OF DAEHO · featured souls
+   A fan shrine to the realm — characters to look at and adore.
+   Fields: crest glyph, element (water|fire|mystic), house, iconic lines.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+window.DAEHO = {
+  filters: [
+    { id: "all",    label: "All Souls",  korean: "전체" },
+    { id: "faves",  label: "Adored",     korean: "애정" },
+    { id: "fire",   label: "Fire Souls", korean: "화" },
+    { id: "water",  label: "Water Souls",korean: "수" }
+  ],
+  characters: [
+    {
+      id: "jang-uk", name: "Jang Uk", korean: "장욱",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/a/a4/Jung_uk.jpg/revision/latest?cb=20230222193823",
+      fallback: "/static/img/jang-uk.jpg",
+      role: "Heir of the Jang House", house: "Jang · pupil of Jinyowon",
+      element: "fire", glyph: "烏",
+      excerpt: "The boy born with nothing, who refused to stay that way.",
+      bio: [
+        "Jang Uk is the son the realm couldn't keep — born without the power every Jang should carry, cast aside by a house that measured worth in fire. He grew up as the commoner who belonged to no one, and sharpened that loneliness into a blade.",
+        "What he lacks in inheritance he repays in stubbornness. Given half a chance and a borrowed master, he set out to become a mage the realm would have to notice — and the realm, grudgingly, has begun to."
+      ],
+      lines: [
+        "“They told me I was born without the fire. They forgot to tell me I could learn to hold a match.”"
+      ],
+      relationships: [
+        { name: "Master Yi Su", note: "his dancing, vain, brilliant tutor" },
+        { name: "Bubu", note: "the inn maid who keeps surprising him" }
+      ],
+      tags: ["fire", "jang", "jinowon's heir"]
+    },
+    {
+      id: "naksu", name: "Naksu", korean: "낙수",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/7/70/Cho_Yeong.jpg/revision/latest?cb=20230221221515",
+      fallback: "/static/img/naksu.jpg",
+      role: "The Flame That Wouldn't Die", house: "the whispered assassin",
+      element: "fire", glyph: "焰",
+      excerpt: "A storm you should have let go — now it has nowhere else to burn.",
+      bio: [
+        "Naksu is the name rumours say before they cross themselves — an assassin of terrible skill whose fire refused to be extinguished, even when fate took everything from her. She is less a person than a pressure the realm keeps pretending it can ignore.",
+        "Denied the story she was owed, she wrote her own in the only language that suited her: leaving a trail so bright that those who swore she was gone could not, in good conscience, look away."
+      ],
+      lines: [
+        "“You cannot put out a fire that has already decided it is the only thing left of you.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "they keep meeting like an argument" }
+      ],
+      tags: ["fire", "assassin", "jinyowon"]
+    },
+    {
+      id: "bubu", name: "Mu-Deok · Bubu", korean: "무덕",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/5/5e/Mu-deok.jpeg/revision/latest?cb=20230222193452",
+      fallback: "/static/img/bubu.jpg",
+      role: "A Tempest in an Innkeeper's Body", house: "Jinyowon's strongest maid",
+      element: "water", glyph: "水",
+      excerpt: "The realm's most unremarkable maid — and the last person it should underestimate.",
+      bio: [
+        "Bubu is the inn's favourite, smallest, strongest maid — a walking contradiction who bends steel with one hand and serves tea with the other. Everyone loves her; no one thinks to look twice. That is precisely her gift.",
+        "Under that round, apologetic smile is a current no one in Daeho has learned to fear yet. Water, after all, does not announce itself — it simply wears a path through whatever tried to stop it."
+      ],
+      lines: [
+        "“I'm just the maid. Please don't mind me.” — while the candle across the room quietly stops burning."
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "her favourite storm to feed" },
+        { name: "the inn", note: "her uncomplicated, beloved home" }
+      ],
+      tags: ["water", "maid", "underestimate her"]
+    },
+    {
+      id: "jang-gang", name: "Jang Gang", korean: "장강",
+      art: "/static/img/jang-gang.jpg",
+      role: "The Lord Who Chose the Wrong Vessel", house: "Jang · keeper of the Ice Stone",
+      element: "fire", glyph: "石",
+      excerpt: "He carried the Ice Stone so the realm wouldn't have to — and it carried him instead.",
+      bio: [
+        "Jang Gang was the Jang patriarch, a great fire-artist who took the Ice Stone into himself to keep it from the realm's grasp. It was an act of terrible devotion: to lock away the relic, he had to become its cage.",
+        "Power of that order does not sit quietly. The lord who once ruled a house would find himself, at the wrong hour, watching his own hand move to music he had not heard — proof, some say, of how thin the line is between keeper and kept."
+      ],
+      lines: [
+        "“You think a cage protects the realm from the storm. You forget who has to live inside it.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "the son he could never safely love" }
+      ],
+      tags: ["fire", "ice stone", "jang"]
+    },
+    {
+      id: "yi-su", name: "Master Yi Su", korean: "이수",
+      art: "/static/img/yi-su.jpg",
+      role: "The Realm's Most Vain Genius", house: "wandering master · Jinyowon",
+      element: "water", glyph: "睿",
+      excerpt: "A thousand-year-old mage who would rather be admired than be right.",
+      bio: [
+        "Master Yi Su is Daeho's oldest and most insufferably brilliant living mage — a man who has seen eras pass and still regrets none of his own choices, only the audiences that failed to applaud them. He tutors for his own amusement and calls it mercy.",
+        "Beneath the vanity is a mind that has forgotten nothing: every art, every flaw, every fire he let burn. He claims to teach for money; the truth is he teaches because watching disaster bloom never gets old, and occasionally he misses being useful."
+      ],
+      lines: [
+        "“I am a thousand years old, and you are one mistake away from becoming a very good story.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "his favourite unfinished disaster" }
+      ],
+      tags: ["water", "master", "ancient"]
+    },
+    {
+      id: "crown-prince", name: "The Crown Prince", korean: "세자",
+      art: "https://static.wikia.nocookie.net/alchemy-of-souls/images/c/c1/Go_won.jpg/revision/latest?cb=20230222204444",
+      fallback: "/static/img/crown-prince.jpg",
+      role: "The Sharpest Blade, the Loneliest Heir", house: "the royal court",
+      element: "water", glyph: "冠",
+      excerpt: "Every lesson taught him to win; none taught him how to rest afterward.",
+      bio: [
+        "The Crown Prince of Daeho is the sword the realm keeps drawn — brilliant, sharp, and marooned at the centre of a court that smiles in a language he stopped trusting years ago. He reads betrayal in every bow, because it is usually there.",
+        "Those close to him whisper that the sharpness is armour before it is talent: a boy trained to win every argument and never taught that stillness is not the same as surrender. He is the realm's hope, and quietly, the realm's loneliest man."
+      ],
+      lines: [
+        "“When every hand bows to you, you learn to count the ones that mean it.”"
+      ],
+      relationships: [
+        { name: "Jang Uk", note: "the only peer who forgets to bow" }
+      ],
+      tags: ["water", "royal", "court"]
+    }
+  ]
+};

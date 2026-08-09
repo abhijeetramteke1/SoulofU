@@ -894,3 +894,189 @@ html { font-size: 17px; }   /* lifts every rem-based size ~6% */
   .reader__verse h3 { font-size: 1.5rem; }
   .gallery-head h2 { font-size: 1.4rem; }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════
+   FAN FEATURES — element fate · soul ledger · ink-seal share cards
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── header fate seal (element identity chip) ── */
+.fate-seal {
+  appearance: none; height: 40px; flex: none; border-radius: 999px;
+  border: 1px solid rgba(148,163,184,.22); background: rgba(148,163,184,.05);
+  color: var(--mist-dim); cursor: pointer; display: inline-flex;
+  align-items: center; gap: 8px; padding: 0 15px;
+  font-family: var(--font-body); font-size: .72rem; letter-spacing: .08em;
+  transition: all .35s var(--ease-ink);
+}
+.fate-seal:hover { color: var(--cyan); border-color: rgba(0,229,255,.5); box-shadow: var(--glow-cyan); }
+.fate-seal .fate-seal__label { white-space: nowrap; }
+html[data-soul="fire"] .fate-seal { color: #ffb38a; border-color: rgba(255,122,69,.4); }
+html[data-soul="ice"]   .fate-seal { color: var(--cyan); border-color: rgba(0,229,255,.4); }
+
+/* ── read status on gallery cards ── */
+.art-card.is-read .art-card__meta .dot {
+  box-shadow: 0 0 10px var(--cyan), 0 0 2px var(--cyan);
+  background: linear-gradient(45deg, var(--cyan), var(--cyan-soft));
+}
+.art-card.is-read .art-card__seal {
+  opacity: .9; color: var(--cyan);
+  filter: drop-shadow(0 0 6px rgba(0,229,255,.8));
+}
+.art-card.is-read .art-card__title { color: var(--cyan-soft); }
+
+/* ── shared modal chrome (fate + seal) ── */
+.fate, .seal {
+  position: fixed; inset: 0; z-index: 90;
+  display: grid; place-items: center; padding: 22px;
+  opacity: 0; visibility: hidden; transition: opacity .45s var(--ease-ink), visibility 0s linear .45s;
+}
+.fate.open, .seal.open { opacity: 1; visibility: visible; transition: opacity .45s var(--ease-ink); }
+.fate__backdrop, .seal__backdrop {
+  position: absolute; inset: 0; background: rgba(6,9,15,.78);
+  backdrop-filter: blur(7px);
+}
+.fate__panel, .seal__panel {
+  position: relative; width: min(560px, 100%); max-height: 86vh; overflow: auto;
+  background: linear-gradient(160deg, #0e1420, var(--void-deep));
+  border: 1px solid rgba(0,229,255,.22);
+  border-radius: 16px; padding: 34px 34px 30px;
+  box-shadow: 0 30px 80px rgba(0,0,0,.6), 0 0 40px rgba(0,229,255,.08) inset;
+}
+html[data-soul="fire"] .fate__panel,
+html[data-soul="fire"] .seal__panel { border-color: rgba(217,119,6,.35); }
+.fate__close, .seal__close {
+  position: absolute; top: 14px; right: 14px;
+  appearance: none; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(148,163,184,.22); background: transparent;
+  color: var(--mist-dim); cursor: pointer; display: grid; place-items: center;
+  transition: all .3s var(--ease-ink);
+}
+.fate__close:hover, .seal__close:hover { color: var(--cyan); border-color: rgba(0,229,255,.5); }
+
+/* ── fate quiz content ── */
+.fate__view { text-align: center; }
+.fate__eyebrow {
+  font-family: var(--font-body); font-size: .66rem; letter-spacing: .28em;
+  text-transform: uppercase; color: var(--mist-dim); margin-bottom: 18px;
+}
+.fate__q {
+  font-family: var(--font-title); font-style: italic; font-weight: 500;
+  font-size: 1.45rem; line-height: 1.4; color: var(--mist-pearl);
+  margin: 4px 0 28px; min-height: 84px;
+}
+.fate__options { display: flex; flex-direction: column; gap: 11px; }
+.fate__opt {
+  appearance: none; padding: 14px 18px; border-radius: 12px; cursor: pointer;
+  font-family: var(--font-body); font-size: .96rem; color: var(--mist-pearl);
+  background: rgba(148,163,184,.06); border: 1px solid rgba(148,163,184,.18); text-align: left;
+  transition: all .3s var(--ease-ink); display: flex; align-items: center; justify-content: space-between; gap: 12px;
+}
+.fate__opt .kr { font-family: "Noto Serif KR", serif; font-size: .9rem; opacity: .55; }
+.fate__opt:hover { border-color: rgba(0,229,255,.5); box-shadow: var(--glow-cyan); transform: translateY(-1px); }
+.fate__opt.fire:hover { border-color: rgba(255,122,69,.55); box-shadow: 0 0 15px rgba(255,107,53,.25); }
+.fate__track { height: 3px; background: rgba(148,163,184,.14); border-radius: 2px; margin-top: 26px; overflow: hidden; }
+.fate__track i { display: block; height: 100%; background: linear-gradient(90deg, var(--cyan), var(--cyan-soft)); border-radius: 2px; transition: width .35s var(--ease-ink); }
+.fate__glyph { font-size: 3.4rem; line-height: 1; margin-bottom: 8px; text-shadow: 0 0 28px currentColor; }
+.fate__name { font-family: var(--font-display); font-weight: 600; font-size: 1.6rem; color: var(--mist-pearl); margin: 8px 0 14px; }
+.fate__master { font-family: var(--font-title); font-style: italic; color: var(--mist-dim); line-height: 1.6; margin: 0 0 12px; }
+.fate__note { font-size: .82rem; color: var(--mist-dim); margin-bottom: 22px; }
+.fate__note em { color: var(--cyan-soft); font-style: normal; }
+.fate__actions { flex-direction: row; justify-content: center; gap: 12px; }
+
+/* ── shared buttons ── */
+.btn-primary, .btn-ghost {
+  appearance: none; padding: 11px 22px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-body); font-size: .82rem; letter-spacing: .06em;
+  transition: all .3s var(--ease-ink);
+}
+.btn-primary { color: var(--void); background: var(--cyan); border: 1px solid var(--cyan); box-shadow: var(--glow-cyan-strong); }
+.btn-primary:hover { filter: brightness(1.12); }
+.btn-ghost { color: var(--mist-dim); background: transparent; border: 1px solid rgba(148,163,184,.3); }
+.btn-ghost:hover { color: var(--mist-pearl); border-color: rgba(148,163,184,.6); }
+
+/* ── reader "seal this verse" button ── */
+.seal-verse {
+  appearance: none; display: inline-flex; align-items: center; gap: 8px;
+  margin: 0 0 26px; padding: 9px 16px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-body); font-size: .76rem; letter-spacing: .05em;
+  color: var(--cyan-soft); background: rgba(56,189,248,.05);
+  border: 1px solid rgba(56,189,248,.28);
+  transition: all .3s var(--ease-ink);
+}
+.seal-verse:hover { color: var(--cyan); box-shadow: var(--glow-cyan); border-color: rgba(0,229,255,.5); }
+
+/* ── seal modal ── */
+.seal__panel { width: min(560px, 100%); padding: 0; overflow: hidden; text-align: center; }
+.seal__panel canvas { display: block; width: 100%; height: auto; border-radius: 16px 16px 0 0; }
+.seal__actions { display: flex; justify-content: center; gap: 12px; padding: 20px; }
+
+/* ── shrine: favorite heart + reader prose ── */
+.art-card__frame { position: relative; }
+.fav-heart {
+  position: absolute; top: 12px; right: 12px; z-index: 3;
+  width: 34px; height: 34px; border-radius: 50%;
+  appearance: none; border: 1px solid rgba(148,163,184,.26);
+  background: rgba(6,9,15,.55); color: var(--mist-dim); cursor: pointer;
+  display: grid; place-items: center; transition: all .3s var(--ease-ink);
+  backdrop-filter: blur(4px);
+}
+.fav-heart:hover { color: var(--cyan); border-color: rgba(0,229,255,.5); transform: scale(1.08); }
+.fav-heart.on { color: #fff; background: var(--cyan); border-color: var(--cyan); box-shadow: var(--glow-cyan-strong); }
+html[data-theme="fire"] .fav-heart.on { background: #ff7a45; border-color: #ff7a45; }
+.art-card[data-elem="fire"] .art-card__meta .dot { background: #ff7a45; box-shadow: 0 0 10px rgba(255,107,53,.7); }
+.art-card[data-elem="water"] .art-card__meta .dot { background: var(--cyan); box-shadow: var(--glow-cyan); }
+
+.reader__actions { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 26px; }
+.seal-verse.adore.on { color: #fff; background: var(--cyan); border-color: var(--cyan); box-shadow: var(--glow-cyan-strong); }
+html[data-theme="fire"] .seal-verse.adore.on { background: #ff7a45; border-color: #ff7a45; }
+
+.reader-sec { margin-bottom: 30px; }
+.reader-sec__title {
+  font-family: var(--font-body); font-size: .64rem; letter-spacing: .26em;
+  text-transform: uppercase; color: var(--mist-dim); margin: 0 0 14px;
+  display: flex; align-items: center; gap: 10px;
+}
+.reader-sec__title::after { content: ""; height: 1px; flex: 1; background: linear-gradient(90deg, rgba(148,163,184,.3), transparent); }
+.bio-p {
+  font-family: var(--font-verse); color: var(--mist-pearl); font-size: 1rem;
+  line-height: 1.9; margin: 0 0 16px; max-width: 62ch;
+}
+.bond { display: flex; flex-wrap: wrap; gap: 4px 8px; font-size: .92rem; color: var(--mist-dim); line-height: 1.7; margin-bottom: 9px; }
+.bond b { color: var(--cyan-soft); font-weight: 500; }
+.reader-sec .stanza { margin-bottom: 16px; }
+
+/* ── shrine visual polish: hero ink backdrop, card tint, header wrap ── */
+.hero { z-index: 1; }
+.hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(6,9,15,.60), rgba(6,9,15,.82) 78%, var(--void)),
+    url("../img/hero-pines.jpg") center 16% / cover no-repeat;
+  opacity: .55;
+  -webkit-mask-image: linear-gradient(180deg, #000 30%, transparent 92%);
+  mask-image: linear-gradient(180deg, #000 30%, transparent 92%);
+}
+html[data-theme="fire"] .hero::before { opacity: .62; }
+
+/* persistent bottom vignette on cards so titles stay readable */
+.art-card__frame::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(180deg, transparent 52%, rgba(6,9,15,.5));
+}
+/* element ink-tint wash over the art */
+.art-card[data-elem="fire"] .art-card__frame::before {
+  background:
+    linear-gradient(180deg, rgba(255,107,53,.12), transparent 55%),
+    linear-gradient(180deg, transparent 52%, rgba(40,10,6,.55));
+}
+.art-card[data-elem="water"] .art-card__frame::before {
+  background:
+    linear-gradient(180deg, rgba(0,229,255,.10), transparent 55%),
+    linear-gradient(180deg, transparent 52%, rgba(6,9,15,.5));
+}
+
+/* drop the filter row to its own line before the header gets crowded */
+@media (max-width: 920px) {
+  .header-inner { flex-wrap: wrap; gap: 10px 12px; }
+  .nav-filters { order: 3; width: 100%; justify-content: center; margin-left: 0; }
+}

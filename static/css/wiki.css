@@ -1,0 +1,151 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   THE CHRONICLE OF DAEHO · themed wiki (client-seeded lore)
+   Styled on the realm's tokens so it re-skins with the Fire theme and the
+   visitor's chosen fate.
+   ═══════════════════════════════════════════════════════════════════════ */
+
+.chronicle {
+  position: fixed; inset: 0; z-index: 85;
+  display: grid; place-items: center; padding: 22px;
+  opacity: 0; visibility: hidden;
+  transition: opacity .5s var(--ease-ink), visibility 0s linear .5s;
+}
+.chronicle.open { opacity: 1; visibility: visible; transition: opacity .5s var(--ease-ink); }
+
+.chronicle__backdrop {
+  position: absolute; inset: 0; background: rgba(5, 8, 13, 0.82);
+  backdrop-filter: blur(8px);
+}
+
+/* the scroll itself — a lacquered leaf with a faint binding edge */
+.chronicle__scroll {
+  position: relative; width: min(880px, 100%); max-height: 88vh; overflow-y: auto;
+  background:
+    linear-gradient(90deg, rgba(0,229,255,.04), transparent 6%, transparent 94%, rgba(0,229,255,.04)),
+    linear-gradient(180deg, #0d1420, #0a0f18 60%, #080d15);
+  border: 1px solid rgba(148,163,184,.16);
+  border-radius: 14px; padding: 42px 46px 40px;
+  box-shadow: 0 34px 90px rgba(0,0,0,.66), 0 0 50px rgba(0,229,255,.05) inset;
+}
+html[data-theme="fire"] .chronicle__scroll {
+  background:
+    linear-gradient(90deg, rgba(255,107,53,.05), transparent 6%, transparent 94%, rgba(255,107,53,.05)),
+    linear-gradient(180deg, #1a0f08, #160d07 60%, #120a05);
+  border-color: rgba(217,119,6,.28);
+  box-shadow: 0 34px 90px rgba(0,0,0,.66), 0 0 50px rgba(255,107,53,.05) inset;
+}
+html[data-soul="fire"] .chronicle__scroll { border-color: rgba(217,119,6,.24); }
+
+.chronicle__close {
+  position: sticky; top: 0; float: right; z-index: 2;
+  appearance: none; width: 34px; height: 34px; border-radius: 50%;
+  border: 1px solid rgba(148,163,184,.22); background: rgba(11,14,20,.5);
+  color: var(--mist-dim); cursor: pointer; display: grid; place-items: center;
+  transition: all .3s var(--ease-ink); margin-bottom: -34px;
+}
+.chronicle__close:hover { color: var(--cyan); border-color: rgba(0,229,255,.5); box-shadow: var(--glow-cyan); }
+
+.chronicle__head { text-align: center; padding-bottom: 26px; }
+.chronicle__eyebrow {
+  font-family: var(--font-body); font-size: .64rem; letter-spacing: .3em;
+  text-transform: uppercase; color: var(--mist-dim); margin: 0 0 12px;
+}
+.chronicle__head h2 {
+  font-family: var(--font-stellar); font-weight: 400; font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  letter-spacing: .18em; text-transform: uppercase; color: var(--mist-pearl);
+  margin: 0; text-shadow: 0 0 24px rgba(0,229,255,.25);
+}
+html[data-theme="fire"] .chronicle__head h2 { text-shadow: 0 0 24px rgba(255,107,53,.25); }
+.chronicle__lede {
+  font-family: var(--font-title); font-style: italic; font-size: .95rem;
+  color: var(--mist-dim); margin: 12px auto 22px; max-width: 46ch; line-height: 1.7;
+}
+
+/* category filter chips */
+.chronicle__chips {
+  display: flex; gap: 8px; flex-wrap: wrap; justify-content: center;
+  padding-bottom: 6px;
+}
+.chronicle__chip {
+  appearance: none; padding: 7px 14px; border-radius: 999px; cursor: pointer;
+  font-family: var(--font-body); font-size: .74rem; letter-spacing: .05em;
+  color: var(--mist-dim); background: rgba(148,163,184,.06);
+  border: 1px solid rgba(148,163,184,.16); transition: all .3s var(--ease-ink);
+}
+.chronicle__chip .kr { font-family: "Noto Serif KR", serif; opacity: .5; font-size: .66rem; margin-left: 5px; }
+.chronicle__chip:hover { color: var(--mist-pearl); border-color: rgba(0,229,255,.4); }
+.chronicle__chip.active {
+  color: var(--void); background: var(--cyan); border-color: var(--cyan);
+  box-shadow: var(--glow-cyan-strong);
+}
+.chronicle__chip.active .kr { color: rgba(6,9,15,.7); opacity: .9; }
+
+/* record tablets */
+.chronicle__grid { display: flex; flex-direction: column; gap: 12px; margin-top: 6px; }
+.wiki-card {
+  border: 1px solid rgba(148,163,184,.14);
+  border-radius: 12px; background: linear-gradient(180deg, rgba(148,163,184,.05), rgba(148,163,184,.02));
+  overflow: hidden;
+  transition: border-color .35s var(--ease-ink), box-shadow .35s var(--ease-ink);
+  animation: wiki-in .5s var(--ease-ink) both;
+  animation-delay: var(--stagger, 0ms);
+}
+@keyframes wiki-in {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.wiki-card:hover { border-color: rgba(0,229,255,.34); box-shadow: 0 0 22px rgba(0,229,255,.08); }
+.wiki-card.open { border-color: rgba(0,229,255,.45); box-shadow: 0 0 26px rgba(0,229,255,.12); }
+html[data-theme="fire"] .wiki-card:hover,
+html[data-theme="fire"] .wiki-card.open { border-color: rgba(255,122,69,.42); box-shadow: 0 0 22px rgba(255,107,53,.1); }
+.wiki-card.hidden { display: none; }
+
+.wiki-card__head {
+  appearance: none; width: 100%; display: grid; grid-template-columns: auto 1fr auto auto;
+  align-items: center; gap: 14px; padding: 16px 18px; cursor: pointer;
+  background: transparent; border: 0; color: var(--mist-pearl); text-align: left;
+  font-family: var(--font-body);
+}
+.wiki-card__glyph {
+  width: 34px; height: 34px; flex: none; border-radius: 9px;
+  display: grid; place-items: center; font-size: 1rem;
+  color: var(--cyan); background: rgba(0,229,255,.07);
+  border: 1px solid rgba(0,229,255,.22); transition: all .3s var(--ease-ink);
+}
+.wiki-card.open .wiki-card__glyph { box-shadow: var(--glow-cyan); }
+html[data-theme="fire"] .wiki-card__glyph,
+html[data-soul="fire"] .wiki-card__glyph { color: #ff7a45; background: rgba(255,107,53,.07); border-color: rgba(255,107,53,.24); }
+.wiki-card__titles { display: flex; flex-direction: column; min-width: 0; }
+.wiki-card__titles b { font-family: var(--font-display); font-weight: 600; font-size: 1.02rem; letter-spacing: .02em; }
+.wiki-card__titles small { font-family: "Noto Serif KR", serif; color: var(--mist-dim); font-size: .72rem; margin-top: 2px; }
+.wiki-card__cat { font-size: .7rem; letter-spacing: .06em; color: var(--mist-dim); white-space: nowrap; }
+.wiki-card__chev {
+  width: 8px; height: 8px; border-right: 1.6px solid var(--mist-dim); border-bottom: 1.6px solid var(--mist-dim);
+  transform: rotate(-45deg); transition: transform .35s var(--ease-ink); margin-right: 4px;
+}
+.wiki-card.open .wiki-card__chev { transform: rotate(-135deg); border-color: var(--cyan); }
+
+.wiki-card__reveal {
+  padding: 2px 18px 20px 66px; animation: reveal-in .4s var(--ease-ink);
+}
+@keyframes reveal-in { from { opacity: 0; transform: translateY(-4px); } to { opacity: 1; transform: translateY(0); } }
+.wiki-card__excerpt {
+  font-family: var(--font-title); font-style: italic; color: var(--cyan-soft);
+  font-size: .98rem; line-height: 1.6; margin: 0 0 14px;
+}
+.wiki-card__reveal p {
+  font-family: var(--font-verse); color: var(--mist-pearl); font-size: .94rem;
+  line-height: 1.85; margin: 0 0 14px; max-width: 62ch;
+}
+.wiki-card__tags { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 4px; }
+.wiki-card__tags span {
+  font-size: .66rem; letter-spacing: .08em; padding: 4px 10px; border-radius: 999px;
+  color: var(--mist-dim); border: 1px solid rgba(148,163,184,.2); background: rgba(148,163,184,.04);
+}
+
+@media (max-width: 620px) {
+  .chronicle__scroll { padding: 26px 20px 28px; }
+  .wiki-card__head { grid-template-columns: auto 1fr auto; gap: 10px; }
+  .wiki-card__cat { display: none; }
+  .wiki-card__reveal { padding-left: 42px; }
+}

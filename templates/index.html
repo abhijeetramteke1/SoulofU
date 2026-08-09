@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>The Ice Flower Library · Soul Bound Archives — Poetry of Daeho</title>
-  <meta name="description" content="A poetry and visual-art archive from the realm of Daeho — ink-wash verses on shadow, souls, water and fire.">
+  <title>The Shrine of Daeho · Soul Bound Archives — A Fan Shrine to the Realm</title>
+  <meta name="description" content="A fan shrine to the realm of Daeho — adore its souls, its water, its fire, and the house that tried to keep them apart.">
   <meta name="theme-color" content="#0B0E14">
 
   {% load static %}
@@ -15,6 +15,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=Noto+Serif+KR:wght@400;600&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/wiki.css' %}">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2c1.5 4-2 6-2 10a4 4 0 0 0 8 0c0-2-1-3.5-2-5' stroke='%2300E5FF' stroke-width='1.4' fill='none'/%3E%3C/svg%3E">
 </head>
 <body>
@@ -47,7 +48,7 @@
       <a class="brand" href="/" aria-label="The Ice Flower Library — home">
         <span>
           <span class="brand-title">The Ice Flower Library</span><br>
-          <span class="brand-sub">Soul Bound Archives · 대호의 시</span>
+          <span class="brand-sub">Soul Bound Archives · a fan shrine to Daeho</span>
         </span>
       </a>
 
@@ -72,6 +73,22 @@
         <span class="sigil__pulse"></span>
       </button>
 
+      <button class="fate-seal" id="chronicle-toggle" aria-label="Open the Chronicle of Daeho — a themed wiki of the realm">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M5 4a2 2 0 0 1 2-2h11a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2"/>
+          <path d="M5 4a2 2 0 0 0 0 4h13"/><path d="M5 8v14a2 2 0 0 1 2 2h11a2 2 0 0 1-2-2V8"/>
+        </svg>
+        <span class="fate-seal__label">Chronicle</span>
+      </button>
+
+      <button class="fate-seal" id="fate-toggle" aria-label="Seek your element — Which fate holds you?" aria-haspopup="dialog" aria-pressed="false">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+          <circle cx="12" cy="12" r="8.5"/>
+          <path d="M12 8v8M8 12h8" stroke-dasharray="2.2 2.6"/>
+        </svg>
+        <span class="fate-seal__label" id="fate-label">Fate</span>
+      </button>
+
       <button class="audio-toggle" id="audio-toggle" aria-label="Toggle ambient sound (water and silk strings)" aria-pressed="false" aria-live="polite">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
           <path d="M4 14v-4M8 17V7M12 20V4M16 17V7M20 14v-4"/>
@@ -84,24 +101,23 @@
 
   <!-- ═══ Hero ═══ -->
   <section class="hero">
-    <p class="hero-eyebrow">Hwansu · Daeho · Jinyowon</p>
-    <h1>The <span class="ice">Ice Flower</span> Library</h1>
+    <p class="hero-eyebrow">A fan shrine · Daeho · Alchemy of Souls (환혼)</p>
+    <h1>The <span class="ice">Shrine</span> of Daeho</h1>
     <p class="hero-lede">
-      A quiet archive of verses and ink from the realm of <em>Daeho</em> —
-      where souls change hands like coins, water argues with fire,
-      and a single frozen blossom keeps the winter honest.
+      A place to look at the realm and adore it — the souls who burn, the water that remembers,
+      and the house that tried to keep the fire from ever being born.
     </p>
     <div class="hero-stats">
-      <div class="stat"><b id="stat-pieces">0</b><span>Illuminated Pieces</span></div>
-      <div class="stat"><b id="stat-archives">0</b><span>Thematic Archives</span></div>
-      <div class="stat"><b>∞</b><span>Souls in Transit</span></div>
+      <div class="stat"><b id="stat-pieces">0</b><span>Featured Souls</span></div>
+      <div class="stat"><b id="stat-archives">0</b><span>Lore Records</span></div>
+      <div class="stat"><b id="stat-read">0 / 0</b><span>Adored</span></div>
     </div>
   </section>
 
   <!-- ═══ Gallery ═══ -->
   <main class="gallery-wrap">
     <div class="gallery-head" id="gallery-head">
-      <h2>All Works</h2>
+      <h2>All Souls</h2>
       <span class="kr" style="font-family:'Noto Serif KR',serif;color:var(--mist-dim)">전체</span>
       <span class="count" id="count"></span>
     </div>
@@ -135,6 +151,18 @@
         <h3 id="reader-title"></h3>
         <p class="kr" id="reader-kr"></p>
         <div class="reader__meta" id="reader-meta"></div>
+        <div class="reader__actions">
+          <button class="seal-verse adore" id="reader-adore" aria-pressed="false">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 20s-7-4.6-9.2-9A5.2 5.2 0 0 1 12 6.2 5.2 5.2 0 0 1 21.2 11C19 15.4 12 20 12 20z"/></svg>
+            <span>Adore</span>
+          </button>
+          <button class="seal-verse" id="seal-btn" aria-label="Seal this soul as a share card">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+              <rect x="6" y="6" width="12" height="12" rx="1.5"/><path d="M12 9v6M9 12h6"/>
+            </svg>
+            <span>Seal a card</span>
+          </button>
+        </div>
         <div id="reader-stanzas"></div>
       </div>
 
@@ -150,13 +178,55 @@
     </div>
   </div>
 
+  <!-- ═══ Fate modal — the element quiz ═══ -->
+  <div class="fate" id="fate" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="fate-title">
+    <div class="fate__backdrop" data-close></div>
+    <div class="fate__panel">
+      <button class="fate__close" id="fate-close" aria-label="Close the fate counsel">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="fate__view" id="fate-view" aria-live="polite"></div>
+    </div>
+  </div>
+
+  <!-- ═══ Ink-seal share modal ═══ -->
+  <div class="seal" id="seal" role="dialog" aria-modal="true" aria-hidden="true">
+    <div class="seal__backdrop" data-close-seal></div>
+    <div class="seal__panel">
+      <canvas id="seal-canvas" width="1080" height="1080" aria-label="Ink-seal share card for the verse"></canvas>
+      <div class="seal__actions">
+        <button class="btn-primary" id="seal-download">Download the seal</button>
+        <button class="btn-ghost" id="seal-close">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ Chronicle of Daeho — themed wiki ═══ -->
+  <div class="chronicle" id="chronicle" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="chronicle-title">
+    <div class="chronicle__backdrop" data-close-chronicle></div>
+    <div class="chronicle__scroll">
+      <button class="chronicle__close" id="chronicle-close" aria-label="Close the chronicle">✕</button>
+      <header class="chronicle__head">
+        <p class="chronicle__eyebrow">A gazetteer of the realm · 대호의 기록</p>
+        <h2 id="chronicle-title">The Chronicle of Daeho</h2>
+        <p class="chronicle__lede">Records of places, arts, souls and houses — kept by the Ice Flower Library for those still travelling.</p>
+        <div class="chronicle__chips" id="chronicle-chips"></div>
+      </header>
+      <div class="chronicle__grid" id="chronicle-grid"></div>
+    </div>
+  </div>
+
   <!-- ═══ Footer ═══ -->
   <footer class="site-footer">
-    <p><b>The Ice Flower Library</b> · Soul Bound Archives</p>
-    <p>Original verses, ink rendered by hand, silence curated by WebAudio.</p>
-    <p style="margin-top:10px;opacity:.55">Inspired by the realm of Daeho. No souls were shifted in the making of this archive.</p>
+    <p><b>The Shrine of Daeho</b> · Soul Bound Archives</p>
+    <p>A fan shrine to the realm — to look, to adore, to remember.</p>
+    <p style="margin-top:10px;opacity:.55">Inspired by the realm of Daeho. Made with devotion, no souls harmed.</p>
+    <p style="margin-top:8px;opacity:.4;font-size:.68rem;letter-spacing:.04em">Character stills courtesy of the Alchemy of Souls fandom wiki (fan use). Ink paintings by Hasegawa Tōhaku &amp; Sesshū (public domain) via Wikimedia Commons.</p>
+    <p style="margin-top:8px"><a class="footer-chronicle" href="#" id="footer-chronicle" style="color:var(--mist-dim);text-decoration:none;border:1px solid rgba(148,163,184,.2);padding:6px 14px;border-radius:999px;font-size:.72rem;letter-spacing:.1em">Read the Chronicle of Daeho</a></p>
   </footer>
 
+  <script src="{% static 'js/daeho-characters.js' %}"></script>
   <script src="{% static 'js/app.js' %}"></script>
+  <script src="{% static 'js/daeho-wiki.js' %}"></script>
 </body>
 </html>
