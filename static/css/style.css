@@ -1623,3 +1623,24 @@ html[data-theme="neon"] .audio-toggle.on {
   #chronicle-toggle, .fate-seal, .audio-toggle { flex: none; }
   .header-inner { gap: 10px 8px; align-items: center; }
 }
+
+/* ── DEFINITIVE header control alignment (mobile & tablet) ──
+   Chronicle + Fate (+ audio) live on one level, evenly-spaced row. */
+@media (max-width: 900px) {
+  .header-inner { flex-wrap: wrap; justify-content: flex-start; gap: 10px 10px; align-items: center; }
+  .nav-filters { order: 3; width: 100%; justify-content: flex-start; }
+  #chronicle-toggle, .fate-seal, .audio-toggle {
+    flex: none; white-space: nowrap;
+  }
+  #chronicle-toggle { margin-left: 0; }
+  .audio-toggle { margin-right: 0; }
+}
+@media (max-width: 620px) {
+  #chronicle-toggle, .fate-seal, .audio-toggle {
+    width: 44px; height: 44px; min-width: 44px; min-height: 44px;
+    border-radius: 50%; padding: 0; justify-content: center;
+    margin-left: 0; margin-right: 0;
+  }
+  #chronicle-toggle .fate-seal__label, .fate-seal .fate-seal__label { display: none; }
+  .header-inner { gap: 10px 10px; }
+}
