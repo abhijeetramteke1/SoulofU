@@ -9,7 +9,7 @@ from .models import Category, Poem, SiteMedia
 
 # Bundled ambient tracks (shipped via static/, served by WhiteNoise in prod).
 # The first one present wins when the admin hasn't uploaded an audio file.
-_BUNDLED_AUDIO = ("ambient.mp3", "ambient.ogg", "ambient.webm")
+_BUNDLED_AUDIO = ("aching.mp3", "ambient.webm", "ambient.mp3", "ambient.ogg")
 
 
 def bundled_audio_url():
@@ -25,9 +25,17 @@ def bundled_audio_url():
 
 def index(request):
     site = SiteMedia.get()
+    bundled = bundled_audio_url()
+    if bundled:
+        # bundled build wins: hard-added shrine music (Aching) plays everywhere
+        audio_url, audio_label = bundled, "Aching · Kassy"
+    elif site.audio_file:
+        audio_url, audio_label = site.audio_file.url, site.audio_label
+    else:
+        audio_url, audio_label = "", site.audio_label
     ctx = {
-        "audio_url": site.audio_file.url if site.audio_file else bundled_audio_url(),
-        "audio_label": site.audio_label,
+        "audio_url": audio_url,
+        "audio_label": audio_label,
     }
     return render(request, "index.html", ctx)
 
